@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+ul.countdown {list-style: none;margin: 75px 0; padding: 0;display: block;text-align: center; height:110px; overflow:hidden;}
+ul.countdown li {display: inline-block;}
+ul.countdown li span {display:block; width:100px; height:110px;line-height: 110px; border-radius:6px; font-size:72px;font-weight: 300;color:#f7e8c2; background:#8a1c22;}
+ul.countdown li.seperator {font-size: 21px;line-height:21px;vertical-align:bottom;}
+</style>
+</head>
+<body>
+
+ 
+ 
+<ul class="countdown">
+    <li><span class="days">00</span></li>
+    <li class="seperator">天</li>
+    <li><span class="hours">00</span></li>
+    <li class="seperator">时</li>
+    <li><span class="minutes">00</span></li>
+    <li class="seperator">分</li>
+    <li><span class="seconds">00</span></li>
+    <li class="seperator">秒</li>
+    <li><span class="Milliseconds">00</span></li>
+    <li class="seperator">分秒</li>
+</ul>
+ 
+<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>   
+<script src="./jquery.downCount.js"></script>
+<script>
+var date = new Date();
+var day = date.getDate()+1;
+var month = date.getMonth()+1;
+var year = date.getFullYear();
+ 
+        
+$('.countdown').downCount({
+    date: month+'/'+day+'/'+year,
+    milliShow:1
+    
+}, function () {
+    console.log('倒计时结束!');
+});
+</script>
+</body>
+</html>
