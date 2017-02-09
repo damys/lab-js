@@ -7,3 +7,6 @@
 
 ##jquery.dialog
 对话框插件
+
+##CCMessage
+提示信息框架
