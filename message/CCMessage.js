@@ -107,7 +107,7 @@
 				if(config.maskClose){
 					mask.click(function(){
 						self.close();
-					})
+					});
 				}
 				
 				//定时消失
@@ -115,7 +115,7 @@
 					window.setTimeout(function(){
 						self.close();
 						config.delayCallback && config.delayCallback();
-					},config.delay)
+					},config.delay);
 				}
 				
 				// 动画效果
@@ -139,9 +139,8 @@
 		
 		center:function(){
 			// 居中
-			this.win.css('margin-left', -this.win.innerWidth()/2)
-			this.win.css('margin-top', -this.win.innerHeight()/2)
-			console.log()
+			this.win.css('margin-left', -this.win.innerWidth()/2);
+			this.win.css('margin-top', -this.win.innerHeight()/2);
 		}			
 	};
 	
@@ -152,7 +151,8 @@
 })($);
 
 
-// Test
-// $.CCMessage();
 
+// Test...
+
+// $.CCMessage();
 // $.CCMessage({delay:200000, message:'添加成功'});
