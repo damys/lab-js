@@ -1,4 +1,13 @@
-// 提示信息框架
+/*
+* jQuery Form Plugin:jquery.CCMessage.js 
+* 提示信息框架
+*
+* author:  damys
+* version: 1.1
+* url:     https://github.com/damys/lab-js
+* Date:    2017/2
+*/
+
 ;(function($){
 	var CCMessage = function(config){
 		var _this = this;
