@@ -69,7 +69,7 @@
 				winBody.html('加载中...');
 				win.append(winBody);
 				mask.append(win);
-				body.append(win);	
+				body.append(mask);	
 				
 				// 加载动画
 				self.animate();	
