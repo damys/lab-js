@@ -4,6 +4,7 @@
 *
 * author:  damys
 * version: 1.1
+* url:     https://github.com/damys/lab-js
 * Date:    2017/2
 */
 
