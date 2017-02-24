@@ -12,8 +12,8 @@
             delayCallback: null,   // 延时关闭的回调函数   
             maskClose: !0,         // 点击遮罩层是否可以关闭, 默认点击可关闭
             maskShow: 0,           // 是否显示遮罩背景, 默认隐藏
-			delay: 0,              // 弹出框多久关闭
-			delayShow: 0,          // 是否显示倒计时读秒， 默认隐藏    
+	delay: 0,              // 弹出框多久关闭
+	delayShow: 0,          // 是否显示倒计时读秒， 默认隐藏    
             effect: !0,            // 是否添加对话框动画效果, 默认有动画
         };
 
@@ -109,12 +109,12 @@
                     this.mask.css("background", "none");
                 }
 				
-				// 动画效果
+	// 动画效果
                 if (config.effect) {
                     self.animate();
                 }
 				
-				// 显示透明背景
+	// 显示透明背景
                 if (config.maskClose) {
                     mask.click(function () {
                         self.close();
@@ -125,13 +125,13 @@
                 var delay = config.delay / 1000;
 				
                 function delayTime() {
-					// 防止传入非整秒
-					delay = parseInt(delay);
-					
-					// 显示倒计时				
-					if(config.delayShow){				
-						winBody.text(delay + '秒 ' + config.message);						
-					}                   
+		// 防止传入非整秒
+		delay = parseInt(delay);
+		
+		// 显示倒计时				
+		if(config.delayShow){				
+			winBody.text(delay + '秒 ' + config.message);						
+		}                   
 
                     // 当延迟时间小于,等于0时，remove ui
                     if (delay <= 0) {
@@ -156,14 +156,14 @@
                 mask.append(win);
                 body.append(mask);
 				
-				// 居中
-				wins = $(win)
-				wins.addClass('dialog-center')
+        	// 居中
+        	wins = $(win)
+        	wins.addClass('dialog-center')
 				
 
-				/* wins.css("margin-top" , 200 );  */               // 偏上一点, 兼容移动iframe 包含
+                /* wins.css("margin-top" , 200 );  */               // 偏上一点, 兼容移动iframe 包含
                 wins.css("margin-top" , - wins.innerHeight()/2);   // PC 居中一点
-				wins.css("margin-left" , -wins.innerWidth()/2);	
+                wins.css("margin-left" , -wins.innerWidth()/2);	
 		
             }
         },
