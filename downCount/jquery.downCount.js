@@ -13,7 +13,7 @@
         var configs = $.extend({
                 date: null,
                 offset:8,     // 时区+8
-				milliShow:0   // 是否显示毫秒 ， 注：较消耗内存， 不建议使用
+                milliShow:0   // 是否显示毫秒 ， 注：较消耗内存， 不建议使用
             }, options);
 
         if (!configs.date) {
@@ -32,19 +32,19 @@
              var utc = date.getTime() + (date.getTimezoneOffset() * 60000);
              var new_date = new Date(utc + (3600000*configs.offset))
 			
-			 return new_date;
+	return new_date;
 			
-			// 更新：location time
+	// 更新：location time
             // return new Date(date.getTime());
         };
 		
-		// 保存容器对象
+	// 保存容器对象
         var container = this;
 		
         // 倒计时
         function countdown () {
             var target_date = new Date(configs.date), // 设置目标日期
-                current_date = currentDate();         // 获取静态当前日期
+                current_date = currentDate();               // 获取静态当前日期
 
             // 计算不同日期
             var difference = target_date - current_date;
@@ -55,8 +55,8 @@
                 clearInterval(interval);
 
                 if (callback && typeof callback === 'function') {
-					callback();
-				}
+    		callback();
+    	}
                 return;
             }
 
@@ -99,26 +99,25 @@
 		
 		// 开始设置计数器：1秒调用1次
         var interval = setInterval(countdown, 1000);
+
+	// 是否显示毫秒， 注：较消耗内存， 不建议使用
+	if(configs.milliShow){
 		
+		var ref_Milliseconds = 0;
 		
-		// 是否显示毫秒， 注：较消耗内存， 不建议使用
-		if(configs.milliShow){
+		function Millisecond() {
+			ref_Milliseconds++;
 			
-			var ref_Milliseconds = 0;
-			
-			function Millisecond() {
-				ref_Milliseconds++;
-				
-				// 只显示两位
-				if(ref_Milliseconds > 100){
-					ref_Milliseconds = 0;
-					return;
-				}				
-				container.find('.Milliseconds').text(ref_Milliseconds);
-			}
-			
-			// 开始设置计数器， 1000分之1秒调用一次
-			setInterval(Millisecond, 1);
+			// 只显示两位
+			if(ref_Milliseconds > 100){
+				ref_Milliseconds = 0;
+				return;
+			}				
+			container.find('.Milliseconds').text(ref_Milliseconds);
 		}
+		
+		// 开始设置计数器， 1000分之1秒调用一次
+		setInterval(Millisecond, 1);
+	}
     };
 })(jQuery);
