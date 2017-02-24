@@ -16,13 +16,13 @@
 		this.config = {
 			width:"auto",
 			height:"auto",
-			message:null,        // 提示信息
+			message:null,         // 提示信息
 			maskOpacity:null,    // 遮罩背景
 			delayCallback:null,  // 延时关闭的回调孙数
 			maskShow:0,          // 显示遮罩，默认隐藏
 			maskClose:!0,        // 点击遮罩层是否可以关闭，默认点击可关闭
-			delay:2000,          // 弹出框多久关闭，默认2s
-			effect:!0            // 动画效果
+			delay:2000,            // 弹出框多久关闭，默认2s
+			effect:!0                // 动画效果
 		};
 		
 		// 判断参数是否已设置
@@ -41,6 +41,7 @@
 		// 渲染DOM
 		this.create();
 		
+                        // 测试输入出参数
 		// console.log(this.config);  
 	};
 	
@@ -152,7 +153,6 @@
 
 
 
-// Test...
 
 // $.CCMessage();
 // $.CCMessage({delay:200000, message:'添加成功'});
