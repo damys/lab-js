@@ -12,9 +12,9 @@
             delayCallback: null,   // 延时关闭的回调函数   
             maskClose: !0,         // 点击遮罩层是否可以关闭, 默认点击可关闭
             maskShow: 0,           // 是否显示遮罩背景, 默认隐藏
-	delay: 0,              // 弹出框多久关闭
+	delay: 0,                 // 弹出框多久关闭
 	delayShow: 0,          // 是否显示倒计时读秒， 默认隐藏    
-            effect: !0,            // 是否添加对话框动画效果, 默认有动画
+            effect: !0,               // 是否添加对话框动画效果, 默认有动画
         };
 
         if (config && $.isPlainObject(config)) {
@@ -207,3 +207,6 @@
         return new Dialog(config);
     };
 })($);
+
+
+// $.dialog();
