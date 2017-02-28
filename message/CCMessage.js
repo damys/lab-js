@@ -150,9 +150,3 @@
 		return new CCMessage(config);
 	};
 })($);
-
-
-
-
-// $.CCMessage();
-// $.CCMessage({delay:200000, message:'添加成功'});
