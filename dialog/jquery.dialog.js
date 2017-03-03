@@ -207,6 +207,3 @@
         return new Dialog(config);
     };
 })($);
-
-
-// $.dialog();
