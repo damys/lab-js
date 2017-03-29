@@ -1,8 +1,10 @@
 ##jquery.tagsinput
+
 插件描述：一个jquery开发的标签功能加强插件，可以生成或删除标签，还能对输入重复标签进行检查，和JQuery autocomplete插件配合实现自动完成功能
 
 
 ###使用：
+
 <pre>
 input type="text" class="input-text" id="tagsinput"
 
@@ -16,6 +18,7 @@ $('#tagsinput').tagsInput({
 
 
 ###参数
+
 <pre>
 $(selector).tagsInput({
    'autocomplete_url': url_to_autocomplete_api,        //自动完成插件的文件地址，demo里有说明
