@@ -36,4 +36,3 @@ $(selector).tagsInput({
    'placeholderColor' : '#666666'       //设置defaultText的颜色
 });
 </pre>
-
