@@ -1,4 +1,4 @@
-##CCMessage
+## CCMessage
 提示信息框架
 
     无参数：

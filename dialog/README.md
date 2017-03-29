@@ -1,4 +1,4 @@
-##jquery.dialog
+## jquery.dialog
 对话框插件
 
 <pre>
