@@ -5,7 +5,7 @@
 
 ###使用：
 
-<pre>
+
 input type="text" class="input-text" id="tagsinput"
 
 $('#tagsinput').tagsInput({
@@ -14,7 +14,7 @@ $('#tagsinput').tagsInput({
     defaultText:'添加标签',  
     placeholderColor:'#b4b4b4'
  });
-</pre>
+
 
 
 ###参数
