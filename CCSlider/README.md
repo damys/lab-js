@@ -1,5 +1,5 @@
 ## Jquery CCSlider
-
+是一款支持移动端的响应式jQuery焦点图插件。该焦点图插件支持flexible布局，支持移动触摸事件，支持IE8+浏览器
 
 ## html
 <pre>
@@ -22,6 +22,7 @@ item: '.ccSlider-item',            //子元素选择器
 isFullScreen: false,               //是否全屏
 isFlexible: false,                 //是否自适应
 isSupportTouch: '__proto__' in {}, //是否支持触摸 html5 transform:
+isHover:true,                      // 是否hover 停止
 isShowPage: true,                  //是否显示分页按钮
 isShowTitle: false,                //是否显示标题栏
 titleAttr: 'data-title',           //标题文本存放的属性 或者回调函数(需要返回值)
@@ -44,4 +45,5 @@ onInited:  $.noop,                 //初始化后回调
 onMoveBefore: $.noop,              //运动前回调
 onMoveAfter: $.noop,               //运动后回调
 onSelected: $.noop                 //分页选中回调
+onHover
 </pre>
