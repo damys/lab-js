@@ -18,60 +18,33 @@ example:
     function Slider($container, options){
         this.$container = $container;
         this.options = $.extend({
-            //开始索引 0开始
-            startSlide: 0,
-            //子元素选择器
-            item: '.ccSlider-item',
-            //是否全屏
-            isFullScreen: false,
-            //是否自适应
-            isFlexible: false,
-            //是否支持触摸 html5 transform:
-            isSupportTouch: '__proto__' in {},
-            //是否显示分页按钮
-            isShowPage: true,
-            //是否显示标题栏
-            isShowTitle: true,
-            //标题文本存放的属性 或者回调函数(需要返回值)
-            titleAttr: 'data-title',
-            //是否显示左右控制按钮
-            isShowControls: true,
-            //是否自动播放
-            isAuto: true,
-            //自动播放间隔时间
-            intervalTime: 5000,
-            //特效时间 
-            affectTime: 300,
-            //特效类型 string : fade || move
-            mode: 'move',
-            //方向 string: left || top
-            direction: 'left',
-            //开始滑动回调
-            onSwipeStart: $.noop,
-            //滑动中回调
-            onSwipeMove: $.noop,
-            //正常滑动的最小值
-            minSwipeLength: 30,
-            //滑动取消回调 和 minSwipeLength值有关
-            onSwipeCancel: $.noop,
-            //触摸结束回调 (正常触摸)
-            onSwipeEnd: $.noop,
-            //向左滑动回调
-            onSwipeLeft: $.noop,
-            //向右滑动回调
-            onSwipeRight: $.noop,
-            //向上滑动回调
-            onSwipeTop: $.noop,
-            //向下滑动回调
-            onSwipeBottom: $.noop,
-            //初始化后回调
-            onInited:  $.noop,
-            //运动前回调
-            onMoveBefore: $.noop,
-            //运动后回调
-            onMoveAfter: $.noop,
-            //分页选中回调
-            onSelected: $.noop
+            startSlide: 0,                     //开始索引 0开始
+            item: '.ccSlider-item',            //子元素选择器
+            isFullScreen: false,               //是否全屏
+            isFlexible: false,                 //是否自适应
+            isSupportTouch: '__proto__' in {}, //是否支持触摸 html5 transform:
+            isShowPage: true,                  //是否显示分页按钮
+            isShowTitle: false,                //是否显示标题栏
+            titleAttr: 'data-title',           //标题文本存放的属性 或者回调函数(需要返回值)
+            isShowControls: true,              //是否显示左右控制按钮
+            isAuto: true,                      //是否自动播放
+            intervalTime: 5000,                //自动播放间隔时间
+            affectTime: 300,                   //特效时间 
+            mode: 'move',                      //特效类型 string : fade || move
+            direction: 'left',                 //方向 string: left || top
+            onSwipeStart: $.noop,              //开始滑动回调
+            onSwipeMove: $.noop,               //滑动中回调
+            minSwipeLength: 30,                //正常滑动的最小值
+            onSwipeCancel: $.noop,             //滑动取消回调 和 minSwipeLength值有关
+            onSwipeEnd: $.noop,                //触摸结束回调 (正常触摸) 
+            onSwipeLeft: $.noop,               //向左滑动回调
+            onSwipeRight: $.noop,              //向右滑动回调
+            onSwipeTop: $.noop,                //向上滑动回调
+            onSwipeBottom: $.noop,             //向下滑动回调
+            onInited:  $.noop,                 //初始化后回调
+            onMoveBefore: $.noop,              //运动前回调
+            onMoveAfter: $.noop,               //运动后回调
+            onSelected: $.noop                 //分页选中回调
         }, options);
         this.init();
     }
