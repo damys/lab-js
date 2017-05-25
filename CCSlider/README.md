@@ -1,6 +1,5 @@
-# CCSlider
+## Jquery CCSlider
 
----
 
 ## html
 <pre>
