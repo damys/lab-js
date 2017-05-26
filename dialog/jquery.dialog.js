@@ -1,3 +1,12 @@
+/*
+* jQuery Form Plugin:jquery.dialog.js 
+* 对话框插件
+*
+* author:  damys
+* version: 1.1
+* url:     https://github.com/damys/lab-js
+* Date:    2016/12
+*/
 ;(function ($) {
     var Dialog = function (config) {
         var _this = this;
