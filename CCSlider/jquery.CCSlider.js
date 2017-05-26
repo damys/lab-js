@@ -1,10 +1,14 @@
-/**
+/*
+* jQuery Form Plugin:jquery.CCSlider.js 
+* 是一款支持移动端的响应式jQuery焦点图插件。该焦点图插件支持flexible布局，支持移动触摸事件，支持IE8+浏览器
 *
-Date: 2017-5-25
-Author: CC
+* author:  damys
+* version: 1.1
+* url:     https://github.com/damys/lab-js
+* Date:    2016/12
 
 example:
-    $('.ccSlider').ccSlider();
+    $('.ccSlider').CCSlider();
 
     <div class="ccSlider">
         <div class="ccSlider-item"></div>
