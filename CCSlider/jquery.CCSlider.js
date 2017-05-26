@@ -5,7 +5,7 @@
 * author:  damys
 * version: 1.1
 * url:     https://github.com/damys/lab-js
-* Date:    2016/12
+* Date:    2017/5/25
 
 example:
     $('.ccSlider').CCSlider();
