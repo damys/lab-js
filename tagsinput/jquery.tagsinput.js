@@ -1,4 +1,13 @@
-(function ($) {
+/*
+* jQuery Form Plugin:jquery.tagsinput.js 
+* 一个jquery开发的标签功能加强插件，可以生成或删除标签，还能对输入重复标签进行检查，和JQuery autocomplete插件配合实现自动完成功能
+*
+* author:  damys
+* version: 1.1
+* url:     https://github.com/damys/lab-js
+* Date:    2016/12
+*/
+;(function ($) {
     var delimiter = new Array();
     var tags_callbacks = new Array();
     $.fn.doAutosize = function (o) {
