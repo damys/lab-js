@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    *{margin: 0; padding: 0}
+    ul,li{ list-style: none;}
+    .rating, .rating-display{
+        background: url(./img/rating.png) repeat-x;
+    }
+    .rating{
+        position: relative;;
+        width: 130px;
+        margin: 100px auto;
+    }
+    .rating-display{
+        width: 0;
+        height: 26px;
+        background-position: 0 -26px;
+    }
+    .rating-mask{
+        position:absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .rating-item{
+        float: left;;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+    }
+</style>
+<div class="rating" id="rating"></div> 
+
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>    
+<script type="text/javascript">
+    
+   var rating = (function(){
+        // 策略: 1处
+        var strategies = {
+            entire:function(){   return 1; },
+            half:function(){      return 2; },
+            quarter:function(){ return 4; }
+        };
+
+
+        // 评分
+        var Rating = function(el, options){
+                this.$el               = $(el);   // 转为jquery 对象
+                this.opts             = $.extend({}, Rating.DEFAULTS, options);  // 提取自定义参数
+
+                 // 策略:2处
+                 if(!strategies[this.opts.mode])  this.opts.mode = 'entire'   // 非合法参数处理，指定为默认
+
+                this.ratio = strategies[this.opts.mode]();     //  读取默认,执行后，返回策略中的数字
+                this.opts.total *= this.ratio;
+                this.opts.num *= this.ratio;
+
+                // 半颗模式
+                // this.opts.total *= 2;
+                // this.opts.num *= 2;
+
+                this.itemWidth    = 26 / this.ratio;     // 默认宽度
+                this.displayWidth = this.opts.num * this.itemWidth;  // 设置点亮个数宽度
+
+                console.log(this.opts)
+        };
+
+
+        // 默认参数
+        Rating.DEFAULTS = {
+            mode:'entire',            // 策略:3处， 指定默认
+            total:5,
+            num:2,
+            readOnly:false,
+            select:function(){},
+            chosen:function(){}
+        };
+
+        Rating.prototype.init = function(){
+                this.buildHTML();           // 创建HTML
+                this.setCSS();                  // 设置样式
+
+                if(!this.opts.readOnly){   // 绑定事件
+                    this.bindEvent();
+                }
+        };
+
+        // 创建HTML
+        Rating.prototype.buildHTML = function(){
+            var html = '';
+            html += '<div class="rating-display"></div>';
+            html +='<ul class="rating-mask">';
+            for(var i = 0; i < this.opts.total; i++){
+                html += '<li class="rating-item"></li>';
+            }
+            html += '</ul>';
+
+            this.$el.html(html);
+        };
+
+        // 设置样式
+        Rating.prototype.setCSS = function(){
+               this.$el.width(this.opts.total * this.itemWidth);  // 总宽度
+               this.$display = this.$el.find('.rating-display');
+               this.$display.width(this.displayWidth);
+
+               this.$el.find('.rating-item').width(this.itemWidth);
+        };
+
+        // 绑定事件
+        Rating.prototype.bindEvent = function(){
+                var self = this;
+                this.$el.on("mouseover", '.rating-item', function()
+                {
+                    var count = $(this).index() + 1;
+                    self.$display.width(count * self.itemWidth);
+
+                    // 参数1：指定到当前对象; 参数2：当前每几个星星; 参数3：星星个数
+                    (typeof self.opts.select === 'function') && self.opts.select.call(this, count, self.opts.total);
+                    
+                    self.$el.trigger('select', [count, self.opts.total]);
+
+                }).on('click', '.rating-item', function()
+                {
+                     var count = $(this).index() + 1;
+
+                     self.displayWidth = count * self.itemWidth;
+
+                    // 第1参数：指定到当前对象，第2参数：当前每几个星星, 第3个参数：星星个数
+                    (typeof self.opts.chosen === 'function') && self.opts.chosen.call(this,count, self.opts.total);
+                    
+                    self.$el.trigger('chosen', [count, self.opts.total]);
+                }).on('mouseout', function()
+                {
+                    self.$display.width(self.displayWidth);
+                })
+        };
+
+        // 解绑定事件
+        Rating.prototype.unbindEvent = function(){
+             this.$el.off();
+        }
+
+        var init = function(el, option){
+                // 防止重复提交调用多次
+                var $el = $(el),
+                      rating = $el.data('rating');
+
+                if(!rating){
+                    $el.data('rating', (rating = new Rating(el, typeof option === 'object' && option)));
+                    rating.init();
+                } 
+
+                // 如果是字符串    
+                if(typeof option === 'string') rating[option]();      
+        };
+
+        // 使用jQuery 插件
+        $.fn.extend({
+            rating:function(option){
+                return this.each( function(){
+                    init(this, option)
+                })
+            }
+        })
+
+        return {
+            init:init
+        };
+
+    })();
+</script>
+
+<script>
+     //  jquery 插件式调用：
+    $('#rating').rating( {
+        mode:'quarter',
+        total:6,
+        num:4,
+        readOnly:false,
+        select:function(count, total){
+            console.log(count + '/' + total);
+        },
+        chosen:function(count, total){
+            $('#rating').rating('unbindEvent');
+        }
+    });
+</script>
+
+<script>
+    //  一般调用：
+    // rating.init('#rating', {
+    //     total:5,
+    //     num:3,
+    //     readOnly:false,
+    //     select:function(count, total){
+    //         console.log(this);
+    //         console.log(count + '/' + total);
+    //     },
+    //     chosen:function(count, total){
+    //     rating.init('#rating', 'unbindEvent');
+    //  }
+    // });
+</script>
+
+
+
+</body>
+</html>
