@@ -6,8 +6,14 @@
 * version: 1.1
 * url:     https://github.com/damys/lab-js
 * Date:    2017/7/4
-example:
 
+example:
+    $('#rating').rating( {
+        mode:'quarter',
+        total:6,
+        num:4,
+        readOnly:false
+    });
 */
 
 var rating = (function(){
