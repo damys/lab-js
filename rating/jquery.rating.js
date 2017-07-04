@@ -4,7 +4,7 @@
 *
 * author:  damys
 * version: 1.1
-* url:     https://github.com/damys/lab-js
+* url:     https://github.com/damys/lab-js/tree/master/rating
 * Date:    2017/7/4
 
 example:
