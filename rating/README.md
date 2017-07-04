@@ -12,7 +12,7 @@
             console.log(count + '/' + total);
         },
         chosen:function(count, total){
-            $('#rating').rating('unbindEvent');
+           // $('#rating').rating('unbindEvent');
         }
     });
 
