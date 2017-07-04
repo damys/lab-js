@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lab</title>
+</head>
+<body>
+</body>
+</html>
+
+<script type="text/javascript">
+
+// 实验1： 重用性问题
+var calculateBonus = function(level, salary){
+    if(level === 'S') return salary * 4;
+    if(level === 'A') return salary * 3;
+    if(level === 'B') return salary * 2;
+}
+
+console.log( '实验1： 重用性问题' + calculateBonus('S', 2000) );
+
+
+// 实验2： 改进
+var performanceS = function(salary){ return salary*4; };
+var performanceA = function(salary){ return salary*3; };
+var performanceB = function(salary){ return salary*2; };
+
+var calculateBonus = function(level, salary){
+    if(level === 'S') return performanceS(salary);
+    if(level === 'A') return performanceA(salary);
+    if(level === 'B') return performanceB(salary);
+};
+
+console.log( '实验2： 改进' + calculateBonus('S', 2000) );
+
+
+// 实验3：策略模式
+// 策略类
+var strategies = {
+    S:function(salary){
+        return salary * 4;
+    },
+    A:function(salary){
+        return salary * 3;
+    },
+    B:function(salary){
+        return salary * 2;
+    }
+};
+
+// 枋心逻辑， 以往操作都要复制一份
+var calculateBonus = function(level, salary){
+    return strategies[level](salary);
+}
+
+console.log( '实验3：策略模式' + calculateBonus('S', 2000) );
+</script>
