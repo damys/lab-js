@@ -1,0 +1,28 @@
+    @charset "utf-8";
+    *{margin: 0; padding: 0}
+    ul,li{ list-style: none;}
+    .rating, .rating-display{
+        background: url(./img/rating.png) repeat-x;
+    }
+    .rating{
+        position: relative;;
+        width: 130px;
+        margin: 100px auto;
+    }
+    .rating-display{
+        width: 0;
+        height: 26px;
+        background-position: 0 -26px;
+    }
+    .rating-mask{
+        position:absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .rating-item{
+        float: left;;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+    }
