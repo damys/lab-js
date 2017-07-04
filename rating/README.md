@@ -15,3 +15,7 @@
             $('#rating').rating('unbindEvent');
         }
     });
+
+
+## 效果图
+![](./rating-demo.png)
