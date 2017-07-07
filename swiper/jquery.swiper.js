@@ -1,11 +1,13 @@
 /**
- * Swiper 3s
- * 
+ * Swiper 3.3
  * http://www.idangero.us/
  * 
  * Licensed under MIT
+ *
  * branch： damys
- * Date:    2017/7/7
+ * version:   1.3.3
+ * url:          https://github.com/damys/lab-js/tree/master/swiper
+ * Date:       2017/7/7
 
  example:
  window.onload = function() {
