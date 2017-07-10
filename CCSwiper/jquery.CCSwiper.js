@@ -6,7 +6,7 @@
  *
  * branch： damys
  * version:   1.3.3
- * url:          https://github.com/damys/lab-js/tree/master/swiper
+ * url:          https://github.com/damys/lab-js/tree/master/CCSwiper
  * Date:       2017/7/7
 
  example:
