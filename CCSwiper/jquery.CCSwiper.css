@@ -4,7 +4,6 @@
   position: relative;
   overflow: hidden;
   /* Fix of Webkit flickering */
-  z-index: 1;
 }
 .swiper-container-no-flexbox .swiper-slide {
   float: left;
@@ -179,7 +178,7 @@
   height: 10px;
   border-radius: 10px;
   background: #999;
-  margin: 0 3px;
+  margin: 0 4px;
   cursor: pointer;
 }
 .swiper-active-switch {background: #fff; }
@@ -242,7 +241,7 @@ button.swiper-pagination-bullet {
   display: block;
 }
 .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 3px;
+  margin: 0 4px;
 }
 /* Progress */
 .swiper-pagination-progress {
