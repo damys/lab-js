@@ -251,9 +251,9 @@
         // hover wrapper stop
         if(s.params.swiperHoverStop){
             $("."+s.params.wrapperClass).hover( function(){
-                s.stopAutoplay();
+                 s.stopAutoplay();
             }, function(){
-                s.startAutoplay(); 
+                if(s.params.loop) s.startAutoplay(); 
             })
         };
         
