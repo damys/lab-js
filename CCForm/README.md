@@ -10,7 +10,7 @@ $.CCForm();
 调用 方式2：有参数
 $.CCForm({
     form:'.CCForm',                        // 可选。表单类名(class 要带点)，默认为CCFrom
-    url:'http://www.xxx.com/post',         // 可选。要提交的url
+    url:'http://www.xxx.com',              // 可选。要提交的url
     jumpUrl:'http://www.xxx.com',          // 可选。提交成功后跳转置页面
     successMsg:'提交成功',                  // 可选。提交成功后，提示的信息
     errorMsg:'提交失败',                    // 可选。提交失败后，提示的信息
