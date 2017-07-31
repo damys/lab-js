@@ -84,7 +84,7 @@
                         success: function (data) {
                             
                             d.close();
-							console.log(data);
+                           // console.log(data);
                             
                             // 根据参数：设置提示信息
                             if(data.code == 1){ 
