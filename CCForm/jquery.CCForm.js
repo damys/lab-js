@@ -345,7 +345,7 @@
     var RULES = {
         //不能为空
         isNonEmpty: function(value, errorMsg) {
-            if (!value.length) return errorMsg;
+            if (!value.replace(/(^\s*)/g, "").length) return errorMsg;
         },
         
         //是否为手机号码
