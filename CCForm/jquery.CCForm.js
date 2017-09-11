@@ -3,7 +3,7 @@
 * 提交框架
 *
 * author:  damys
-* version: 1.1
+* version: 1.2
 * url:        https://github.com/damys/lab-js/tree/master/CCForm
 * Date:    2017/2
 */
@@ -343,7 +343,7 @@
 }(function($, window, document, undefined) {
 
     var RULES = {
-        //不能为空
+        //不能为空，除掉空间
         isNonEmpty: function(value, errorMsg) {
             if (!value.replace(/(^\s*)/g, "").length) return errorMsg;
         },
