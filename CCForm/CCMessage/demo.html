@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset=utf-8>
     <link rel="stylesheet" href="../CCForm.css">
     <title>Message</title>
     <style>
-    .box{ margin: 50px auto;}
+    #demoBtn{ display: block; font-size: 16px; border-radius: 4px; cursor: pointer; margin: 50px auto; border:1px solid #ddd; height: 40px; height: 40px;  width: 150px; text-align: center; background: #fff;}
     </style>
 </head>
 <body>
     <div class="box">
         
-        <button id="demo">TEST</button>
+        <button id="demoBtn">Test</button>
 
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.js"></script>
 <script type="text/javascript" src="CCMessage.js"></script>
 <script type="text/javascript">
-        $('#demo').on("click", function(){
+        $('#demoBtn').on("click", function(){
+            // 加载中。。。
+            // $.CCMessage();
+
+            // 自定义参数：
             $.CCMessage({
-                message:'ABCD',
+                message:'这是一个测试对话框',
                 effect:1,
-                delay:5555000
+                delay:3000
             });
         })
 </script>
