@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../CCForm.css">
+    <title>Message</title>
+    <style>
+    .box{ margin: 50px auto;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+        <button id="demo">TEST</button>
+
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.js"></script>
+<script type="text/javascript" src="CCMessage.js"></script>
+<script type="text/javascript">
+        $('#demo').on("click", function(){
+            $.CCMessage({
+                message:'ABCD',
+                effect:1,
+                delay:5555000
+            });
+        })
+</script>
+</html>
