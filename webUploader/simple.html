@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8>
+<link href="./dist/webuploader.css" rel="stylesheet">
+
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="./dist/webuploader.min.js"></script>
+    <title></title>
+    <style>
+
+
+/* 进度条 */
+.progress {height: 20px;margin-bottom: 20px;overflow: hidden;background-color: #f5f5f5;border-radius: 4px;-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);box-shadow: inset 0 1px 2px rgba(0,0,0,.1)}
+.progress-bar {float: left;width: 0;height: 100%;font-size: 12px;line-height: 20px;color: #fff;text-align: center;
+    background-color: #337ab7;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    transition: width .6s ease}
+
+.progress-bar-striped,.progress-striped .progress-bar {
+    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    -webkit-background-size: 40px 40px;
+    background-size: 40px 40px
+}
+
+.progress-bar.active,.progress.active .progress-bar {
+    -webkit-animation: progress-bar-stripes 2s linear infinite;
+    -o-animation: progress-bar-stripes 2s linear infinite;
+    animation: progress-bar-stripes 2s linear infinite
+}
+
+.progress-bar-success {background-color: #5cb85c}
+.progress-striped .progress-bar-success {
+    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)}
+
+.progress-bar-info {background-color: #5bc0de}
+.progress-striped .progress-bar-info {
+    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
+}
+
+.progress-bar-warning {background-color: #f0ad4e}
+.progress-striped .progress-bar-warning {
+    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
+}
+
+.progress-bar-danger {background-color: #d9534f}
+.progress-striped .progress-bar-danger {
+    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)
+}
+@-webkit-keyframes progress-bar-stripes {
+    from {
+        background-position: 40px 0
+    }
+
+    to {
+        background-position: 0 0
+    }
+}
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 40px 0
+    }
+
+    to {
+        background-position: 0 0
+    }
+}
+
+    </style>
+</head>
+<body>
+<div id="uploader" class="wu-example">
+
+   <!--用来存放文件信息-->
+   <div id="thelist" class="uploader-list"></div>
+
+     <div class="btns">
+        <div id="picker">选择文件</div>
+        <button id="ctlBtn" class="btn btn-default">开始上传   </button>
+     </div>
+
+ </div>
+
+ <script type="text/javascript">
+ $(function() {
+
+  var $list = $('#thelist'),
+   $btn = $('#ctlBtn'),
+   state = 'pending',
+ratio = window.devicePixelRatio || 1,     //  优化retina, 在retina下这个值是2  
+    thumbnailWidth = 100 * ratio,   //缩略图高度和宽度 （单位是像素），当宽高度是0~1的时候，是按照百分比计算，具体可以看api文档  
+    thumbnailHeight = 100 * ratio;
+        // 添加的文件总大小
+        fileSize = 0;
+                // 添加的文件数量
+        fileCount = 0;
+
+  var uploader = WebUploader.create({
+       // auto: false,      // 自动上传
+   // 不压缩image
+   resize: false,
+   // swf文件路径
+   swf: './dist/Uploader.swf',
+   // 文件接收服务端。
+   server: 'webUploader.php',
+   // 选择文件的按钮。可选。
+   // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+   pick: '#picker',
+   chunked: true,                      // 开启切片
+   chunkSize:2*1024*1024,     // 切片大小
+compress:{width:1000, height:1000},   // 压缩图片大小
+
+// compress : false,
+fileNumLimit : 3, //限制上传个数
+   fileSingleSizeLimit: 100*1024*1024,   // 100M 验证单个文件大小是否超出限制, 超出则不允许加入队列
+   fileSizeLimit: 200 * 1024 * 1024,         // 200 M     上传文件总大小
+
+  // 可能有pedding, ready, uploading, confirm, done.
+        // state = 'pedding',
+
+   // 只允许选择文件，可选。  
+   accept: {
+    title: 'Images',
+   extensions: 'gif,jpg,jpeg,bmp,png,mp4,xlsx,zip'
+   }   
+  });
+
+// 属性设置：压缩图片大小
+  uploader.option('compress', {
+    // width:1000, height:1000
+  });
+
+// 输出错误信息
+    uploader.onError = function( code ) {
+        console.log( 'Eroor: ' + code );
+    };
+
+
+  // webuploader事件.当选择文件后，文件被加载到文件队列中，触发该事件。等效于 uploader.onFileueued = function(file){...} ，类似js的事件定义。  
+  uploader.on( 'fileQueued', function( file ) {  
+           fileSize += file.size;
+           fileCount++;
+
+             var $li = $(  
+               '<div id="' + file.id + '" class="file-item thumbnail">' +  
+                   '<img>' +  
+                   '<div class="info">' + file.name + '</div>' +  
+               '</div>'  
+               ),  
+           $img = $li.find('img');  
+
+           console.log('fileQueued:'+WebUploader.formatSize(fileSize))
+           console.log('选择的文件：'+fileCount)
+  
+  
+       // $list为容器jQuery实例  
+       $list.append( $li );  
+  
+       // 创建缩略图  
+       // 如果为非图片文件，可以不用调用此方法。  
+       uploader.makeThumb( file, function( error, src ) {   //webuploader方法  
+           if ( error ) {  
+               $img.replaceWith('<span>不能预览</span>');  
+               return;  
+           }  
+  
+           $img.attr( 'src', src );  
+       }, thumbnailWidth, thumbnailHeight );  
+   });  
+
+
+   // 文件上传过程中创建进度条实时显示。  
+   uploader.on( 'uploadProgress', function( file, percentage ) {  
+
+       var $li = $( '#'+file.id ),
+      $percent = $li.find('.progress .progress-bar');  
+  
+       // 避免重复创建  
+       if ( !$percent.length ) {  
+           $percent = $('<div class="progress progress-striped active"><div style="width:0" aria-valuemax="100" aria-valuemin="0" aria-valuenow="75" role="progressbar" class="progress-bar progress-bar-danger"><span class="sr-only">0 </span></div></div>')  
+                   .appendTo( $li ).find('.progress-bar');  
+       }  
+       $percent.css( 'width', parseInt(percentage*100) + '%' )
+       $percent.find('span').html(parseInt(percentage*100) + '%')
+   });  
+
+   $btn.on( 'click', function() {  
+        console.log("上传...");  
+        uploader.upload();  
+      });  
+
+   // 文件上传成功，给item添加成功class, 用样式标记上传成功。  
+   uploader.on( 'uploadSuccess', function( file ) {  
+       $( '#'+file.id ).addClass('upload-state-done');  
+        console.log("上传成功");  
+   });  
+  
+   // 文件上传失败，显示上传出错。  
+   uploader.on( 'uploadError', function( file ) {  
+       var $li = $( '#'+file.id ),  
+           $error = $li.find('div.error');  
+  
+       // 避免重复创建  
+       if ( !$error.length ) {  
+           $error = $('<div class="error"></div>').appendTo( $li );  
+       }  
+  
+       $error.text('上传失败');  
+
+       console.log('上传失败')
+   });  
+  
+   // 完成上传完了，成功或者失败，先删除进度条。  
+   uploader.on( 'uploadComplete', function( file ) {  
+       $( '#'+file.id ).find('.progress').remove();  
+       console.log('uploadComplete:'+WebUploader.formatSize( fileSize ))
+   });  
+
+  // uploader.on('FileDequeued', function(file){
+  //   console.log('FileDequeued')
+  // })
+
+
+});
+  </script>
+</body>
+</html>
