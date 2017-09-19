@@ -2,7 +2,7 @@
 对话框插件
 
 <pre>
-// 不带参数：
+// 不带参数：可用于加载中...
 $.dialog();
 
 
@@ -10,7 +10,7 @@ $.dialog();
 $.dialog({
 	width: "auto",         // 对话框宽
 	height: "auto",        // 对话框高
-	type: null,            // 对话框类型
+	type: null,            // 对话框类型：默认loading，warning,success
 	buttons: null,         // 按钮数组           
 	message: null,         // 对话框提示信息      
 	maskOpacity: null,     // 对话框遮罩透明度      

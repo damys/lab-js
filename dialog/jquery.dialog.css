@@ -1,10 +1,10 @@
-/* 图标显示0： iconfont */
+/* 图标显示:方案1： iconfont */
 @font-face {font-family: 'iconfont';
-  src: url('./iconfont/dialog_icon/iconfont.eot'); /* IE9*/
-  src: url('./iconfont/dialog_icon/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('./iconfont/dialog_icon/iconfont.woff') format('woff'), /* chrome、firefox */
-  url('./iconfont/dialog_icon/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('./iconfont/dialog_icon/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('./iconfont/iconfont.eot'); /* IE9*/
+  src: url('./iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+  url('./iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('./iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
 .iconfont{
   font-family:"iconfont" !important;
@@ -15,12 +15,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 图标显示2： background */
+/* 图标显示：方案2： images */
 .icon{ width:50px; height:50px;}
 .icon div{ width:100%; height:100%;}
-.icon .warning{ background:url(./icon_warning.png);background-size:cover;}
-.icon .success{ background:url(./icon_success.png);background-size:cover;}
-.icon .loading{ background:url(./icon_loading.gif);background-size:cover;}
+.icon .warning{ background:url(./images/icon_warning.png);background-size:cover;}
+.icon .success{ background:url(./images/icon_success.png);background-size:cover;}
+.icon .loading{ background:url(./images/icon_loading.gif);background-size:cover;}
 
 .g-dialog-container {
   position: fixed;left: 0;top: 0;bottom: 0;right: 0;
@@ -62,5 +62,5 @@
 .g-dialog-container .dialog-window button.cancel{background-color: rgba(255,255,255,.5);}
 .g-dialog-container .dialog-window button.warning{background-color: rgba(217, 83, 79, 1);}
 .g-dialog-container .dialog-window .dialog-header{width: 50px;height: 50px;margin: 0 auto;line-height: 50px;color: #fff;}
-.g-dialog-container .dialog-window .dialog-body{text-align: center;color:#fff; font-weight:600; margin-top:0.5em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+.g-dialog-container .dialog-window .dialog-body{text-align: center;color:#fff; font-size: 14px; font-weight:600; margin-top:0.5em;overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
 .g-dialog-container .dialog-window .dialog-footer{padding: 1em 1em 0;display: -webkit-flex;-webkit-align-items: center;-webkit-justify-content: center;}
