@@ -200,7 +200,7 @@
             height:"auto",
             message:null,        // 提示信息
             maskOpacity:null,    // 遮罩背景
-            delayCallback:null,  // 延时关闭的回调孙数
+            delayCallback:null,  // 延时关闭的回调函数
             maskShow:0,          // 显示遮罩，默认隐藏
             maskClose:!0,        // 点击遮罩层是否可以关闭，默认点击可关闭
             delay:2000,          // 弹出框多久关闭，默认2s
