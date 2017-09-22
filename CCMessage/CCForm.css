@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+/*
+* jQuery Form Plugin:CCForm.css
+* 提交框架CSS
+*
+* author:  damys
+* version: 1.1
+* Date:    2017/2
+*/
+
+.cc-mask{ background:rgba(1,1,1,.2); position:fixed; top:0; left:0; bottom:0; right:0; z-index:5000}
+.cc-win{ position:fixed; left:50%; top:50%;
+    display: inline-block;
+    border-radius: 10px;
+    background: rgba(0,0,0,.7);
+    -webkit-transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+    -moz-transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+    -ms-transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+    transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+}
+.cc-body{
+    color:#fff; font-size:12px; font-weight:600; font-family:"Microsoft YaHei";
+    min-width: 60px;
+    line-height:1.8em;
+    text-align: center;
+    padding:2em 1em;
+    box-sizing:border-box;
+    }
+.cc-animate{
+    -webkit-transform:scale(0,0);
+    -moz-transform:scale(0,0);
+    -ms-transform:scale(0,0);
+    transform:scale(0,0);}
+.cc-animated{ 
+    -webkit-transform:scale(1,1);
+    -moz-transform:scale(1,1);
+    -ms-transform:scale(1,1);
+    transform:scale(1,1);}
+    
+    
+    
+/*---------验证样式-------------*/
+.cc_item{ position: relative;}
+ 
+/* 鼠标active 样式 */
+.cc_item.active .input-text { border: 1px solid #2e6da4;}
+ 
+/* 错误 样式 */
+.cc_item.error .input-text,.cc_item.error .select{ border: 1px solid #d43f3a;}
+.cc_item.error .valid_message {color: #d9534f;}
+.cc_item .valid_message { padding:0 10px; color: #2e6da4;position: absolute; right:0;top:25%;}
+ 
+/* 成功 提示-加小图标 */
+.cc_item.success .valid_message { width: 16px;height: 16px;position: absolute;left: auto;right: 5px;top: 7px;
+background: url(../style/lib/validate/sucess.png) no-repeat; background:none; }

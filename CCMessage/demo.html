@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset=utf-8>
-    <link rel="stylesheet" href="../CCForm.css">
+    <link rel="stylesheet" href="./CCForm.css">
     <title>Message</title>
     <style>
     #demoBtn{ display: block; font-size: 16px; border-radius: 4px; cursor: pointer; margin: 50px auto; border:1px solid #ddd; height: 40px; height: 40px;  width: 150px; text-align: center; background: #fff;}
@@ -26,7 +26,10 @@
             $.CCMessage({
                 message:'这是一个测试对话框',
                 effect:1,
-                delay:3000
+                delay:3000,
+                delayCallback:function(){
+                    console.log('成功后调用我...')
+                }
             });
         })
 </script>
