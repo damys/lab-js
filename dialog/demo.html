@@ -2,33 +2,89 @@
 <html>
 <head>
     <meta charset=utf-8>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
     <link rel="stylesheet" href="./jquery.dialog.css">
     <title>dialog</title>
     <style>
-    #demoBtn{ display: block; font-size: 16px; border-radius: 4px; cursor: pointer; margin: 50px auto; border:1px solid #ddd; height: 40px; height: 40px;  width: 150px; text-align: center; background: #fff;}
+    .btn{ display: block; font-size: 16px; border-radius: 4px; cursor: pointer; margin: 50px auto; border:1px solid #ddd; height: 40px; height: 40px;  width: 150px; text-align: center; background: #fff;}
     </style>
 </head>
 <body>
     <div class="box">
-        
-        <button id="demoBtn">Test</button>
+
+		<button class="btn" id="loading">loading</button>
+        <button class="btn" id="loading_msg">loading_msg</button>
+        <button class="btn" id="demoBtn">demoBtn</button>
+        <button class="btn" id="iconShow">iconShow</button>
+		<button class="btn" id="primary">primary</button>
+
 
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.js"></script>
 <script type="text/javascript" src="jquery.dialog.js"></script>
 <script type="text/javascript">
-        $('#demoBtn').on("click", function(){
-            // 加载中。。。默认loading
-            // $.dialog();
 
-            // 自定义参数： 类型;warning,success
-            $.dialog({
-                type:'warning', 
-                message:'这是一个测试对话框',
-                effect:1,
-                delay:3000
+		$('#loading').on("click", function(){
+            // 加载中。。。默认loading
+            $.dialog();
+		})
+
+        $('#loading_msg').on("click", function(){
+            // 加载中。。。默认loading
+             $.dialog({
+                type:'loading',
+                message:'正在加载...',
+                effect:1
             });
         })
+
+        $('#demoBtn').on("click", function(){
+            // 自定义参数： 类型;warning,success
+            $.dialog({
+                type:'warning',
+                message:'这是一个测试对话框',
+                effect:1,
+                delay:300000,
+				//maskShow:1,
+				//maskClose:0
+            });
+        })
+
+        $('#iconShow').on("click", function(){
+            // 自定义参数： 类型;warning,success
+            $.dialog({
+                type:'warning',
+                iconShow:0,
+                message:'这是一个测试对话框',
+                effect:1,
+                delay:300000,
+                //maskShow:1,
+                //maskClose:0
+            });
+        })
+
+		$('#primary').on("click", function(){
+			// 按钮
+			var d = $.dialog({
+                type:'success',
+                message:'确认要删除？',
+                effect:1,
+                delay:300000,
+				//maskShow:1,
+				//maskClose:0,
+
+				buttons:[
+					{text:'确认',type:'primary', callback:function(){
+						//delUserById(id);
+					}},
+					{text:'取消',type:'cancel',callback:function(){
+						d.close();
+						return false;
+					}}
+				]
+            });
+		})
+
 </script>
 </html>
