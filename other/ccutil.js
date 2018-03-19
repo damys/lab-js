@@ -875,6 +875,142 @@ var ccutil = (function(){
         return currentdate;
     }
 
-
+    return {
+        /**
+         * 参数：o
+         * 说明：o是一个将要被扩展的对象，该方法接收多个参数，并把所有的参数属性复制进o对象的属性中
+         */
+        extend : extend,
+        /**
+         * 参数：options
+         * 说明：传入参数对象，调用ajax请求
+         */
+        ajax : ajax,
+        /**
+         * 参数：url, callback
+         * 说明：发起HTTP GET请求
+         */
+        get : get,
+        /**
+         * 参数：url, data, callback, progressListener
+         * 说明：发起HTTP POST请求
+         */
+        post : post,
+        /**
+         * 参数：url, json, callback
+         * 说明：使用JSON编码主体来发起HTTP POST
+         */
+        postJSON : postJSON,
+        /**
+         * 参数：data
+         * 说明：将对象的名值对转成URL请求参数 可用于GET请求，也可以用于POST的requestBody
+         */
+        encodeUrlParams : encodeUrlParams,
+        /**
+         * 参数：form
+         * 说明：分析表单dom元素，然后对转成URL请求参数
+         */
+        serialize : serialize,
+        /**
+         * 参数：form
+         * 说明：分析表单dom元素，然后对转成FormData对象
+         */
+        getFormData : getFormData,
+        /**
+         * 参数：c_name, value, expiredays
+         * 说明：在浏览器本地添加cookie值
+         */
+        setCookie : setCookie,
+        /**
+         * 参数：c_name
+         * 说明：根据cookie名获取cookie值
+         */
+        getCookie : getCookie,
+        /**
+         * 参数：无
+         * 说明：以对象名值对形式返回document的cookies
+         */
+        getCookies : getCookies,
+        /**
+         * 参数：p
+         * 说明：浅克隆一个新的对象，参数是一个对象，而非构造函数
+         */
+        object : object,
+        /**
+         * 参数：F
+         * 说明：继承一个构造函数，参数是函数，而非对象
+         */
+        inherit : inherit,
+        /**
+         * 参数：o
+         * 说明：获取参数的类型的字符串表示
+         */
+        type : type,
+        /**
+         * 参数：f
+         * 说明：document加载完毕后，执行传入的函数
+         */
+        whenReady : whenReady,
+        /**
+         * 参数：f
+         * 说明：与whenReady相似，用于兼容那些不支持DOMContentLoad，readystatechange和load事件的老式浏览器
+         */
+        onLoad : onLoad,
+        /**
+         * 参数：table, n, comparator
+         * 说明：根据指定表格每行第n个单元格的值，对第一个<tbody>中的行进行排序
+         */
+        sortrows : sortrows,
+        /**
+         *  参数：table
+         *  说明：查找表格的<th>元素（假设只有一行），让它们可单击，以便以便单击列标题，按该列对行排序
+         */
+        makeSortable : makeSortable,
+        /**
+         * 参数：e, distance, time, oncomplete
+         * 说明：对元素产生抖动效果
+         */
+        shake : shake,
+        /**
+         * 参数：selector, className
+         * 说明：切换css样式
+         */
+        toggle : toggle,
+        /**
+         * 参数：无
+         * 说明：图片翻转
+         */
+        rollover : rollover,
+        /**
+         * 参数：nav, totalPages, pageNumber
+         * 说明：创建页码按钮
+         */
+        createPageItems : createPageItems,
+        /**
+         * 参数：totalRow, pageSize
+         * 说明：根据总行数和每页大小计算总页数
+         */
+        countTotalPage : countTotalPage,
+        /**
+         * 参数：url
+         * 说明：同步下载资源
+         */
+        loadsync : loadsync,
+        /**
+         * 参数：url
+         * 说明：异步下载js文件或css
+         */
+        loadasync : loadasync,
+        /**
+         * 参数：target, source
+         * 说明：对象的深度拷贝
+         */
+        deepCopy : deepCopy,
+        /**
+         * 参数：无
+         * 说明：获取格式化的当前时间
+         */
+        getNowFormatDate : getNowFormatDate,
+    };
 
 }());
