@@ -4,7 +4,6 @@
 *
 * author:  damys
 * version: 1.2
-* url:        https://github.com/damys/lab-js/tree/master/CCForm
 * Date:    2017/2
 */
 
