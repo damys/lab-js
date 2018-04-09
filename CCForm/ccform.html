@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>CCForm 信息提交规范</title>
+
+<link rel="icon" href="http://www.aihuagrp.com/style/images/logo.ico">
+<style>
+*{margin:0;padding:0}
+a{ text-decoration: none;}
+html{font-family:"Microsoft YaHei";-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+::-webkit-input-placeholder{ color:#b4b4b4;}  :-moz-placeholder{ color:#b4b4b4;}  ::-moz-placeholder{ color:#b4b4b4;} :-ms-input-placeholder{ color:#b4b4b4;}
+input[type='text'],input[type='password'],input[type='button'],input[type='submit'],input[type='reset']{-webkit-appearance: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
+input,button{overflow:visible;vertical-align:middle;outline:none}
+
+.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+
+.input-text,.textarea{box-sizing:border-box;border:solid 1px #ddd;width:100%;word-break:break-all; border-radius:3px;
+    -webkit-transition:all 0.2s linear 0s;
+    transition:all 0.2s linear 0s}
+.textarea{ height:100px; padding:4px;resize:none}
+.input-text:hover,.textarea:hover{border: solid 1px #3bb4f2}
+.input-text:focus,textarea:focus{border:solid 1px #0f9ae0 \9;border-color:rgba(82,168,236,0.8);box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)}
+.input-text,.label{ font-size:14px; height:31px; padding:6px 12px; line-height:1.5;}
+.select{background-color:#fff;background-image:none;color:inherit;display:block;padding:6px 12px;width:100%;font-size:14px;outline:none;border:1px solid #DDD;transition: border-color .15s ease-in-out 0s,box-shadow .15s ease-in-out 0s;border-radius:3px;}
+.btn{padding:6px 12px;box-sizing:border-box;display:inline-block;width:auto;cursor:pointer;text-align:center; font-weight:400;white-space:nowrap;vertical-align: middle;border:1px solid #DDD;background-color:#fff;*zoom:1;-webkit-transition:background-color .1s linear;transition:background-color .1s linear;border-radius:3px;}
+.btn-primary{color:#fff;background-color:#337ab7; border-color:#2e6da4; width:200px;}
+.btn-primary:hover,.btn-primary:focus,.btn-primary.active{color:#fff;background-color:#286090;border-color:#204d74}
+.btn-danger{color:#fff;background-color:#d9534f; border-color:#d43f3a}
+.btn-danger:hover,.btn-danger:focus,.btn-danger.active{color:#fff;background-color:#c9302c;}
+    
+.alert {padding: 15px;margin-bottom: 20px;border: 1px solid transparent;border-radius: 4px;}
+.alert-success {color: #3c763d;background-color: #dff0d8;border-color: #d6e9c6;}
+.alert-info {color: #31708f;background-color: #d9edf7;border-color: #bce8f1;}
+.alert-warning {color: #8a6d3b;background-color: #fcf8e3;border-color: #faebcc;}
+.alert-danger {color: #a94442;background-color: #f2dede;border-color: #ebccd1;}
+
+/***************
+  Table
+ ***************/
+table{width:100%;empty-cells:show;background-color:transparent;border-collapse:collapse;border-spacing:0}
+table th{text-align:left; font-weight:400; }
+/*带水平线*/
+.table th{font-weight:bold}
+.table th,.table td{padding:8px;line-height:20px}
+.table td{text-align:left}
+.table tbody tr.success > td{background-color:#dff0d8}
+.table tbody tr.error > td{background-color:#f2dede}
+.table tbody tr.warning > td{background-color:#fcf8e3}
+.table tbody tr.info > td{background-color:#d9edf7}
+.table tbody + tbody{border-top:2px solid #ddd}
+.table .table{background-color:#fff}
+/*带横向分割线*/
+.table-border{border-top:1px solid #ddd}
+.table-border th,.table-border td{border-bottom:1px solid #ddd}
+.table-bg thead th,.table-bg tfoot td{background-color:#F5FAFE}
+/*带外边框*/
+.table-bordered{border:1px solid #ddd;border-collapse:separate;*border-collapse:collapse;border-left:0}
+.table-bordered th,.table-bordered td{border-left:1px solid #ddd}
+.table-border.table-bordered{border-bottom:0}
+/*奇数行背景设为浅灰色*/
+.table-striped tbody > tr:nth-child(odd) > td,.table-striped tbody > tr:nth-child(odd) > th{background-color:#f9f9f9}
+/*竖直方向padding缩减一半*/
+.table-condensed th,.table-condensed td{padding:4px 5px}
+.table-hover tbody tr:hover td,.table-hover tbody tr:hover th{background-color: #f5f5f5}
+.table tbody tr.active,.table tbody tr.active>td,.table tbody tr.active>th,.table tbody tr .active{background-color:#F5F5F5!important}
+.table tbody tr.success,.table tbody tr.success>td,.table tbody tr.success>th,.table tbody tr .success{background-color:#DFF0D8!important}
+.table tbody tr.warning,.table tbody tr.warning>td,.table tbody tr.warning>th,.table tbody tr .warning{background-color:#FCF8E3!important}
+.table tbody tr.danger,.table tbody tr.danger>td,.table tbody tr.danger>th,.table tbody tr .danger{background-color:#F2DEDE!important}
+
+/* 表格文字对齐方式，默认是居左对齐 */
+.table .text-c th,.table .text-c td{text-align:center}
+.table .text-r th,.table .text-r td{text-align:right}
+.table th.text-l,.table td.text-l{text-align:left}
+.table th.text-c,.table td.text-c{text-align:center}
+.table th.text-r,.table td.text-r{text-align:right}
+.text-c{text-align:center}
+.text-r{text-align:right}
+.text-l{text-align:left}
+.text-indent{ text-indent:2em;}
+
+.box{ width:460px; margin:50px auto; font-size:14px;}
+.box .cc_item{ margin-top:10px; text-align:center}
+.box .cc_item .input-text,.cc_item .select{ width:380px; display:inline-block;}
+.box .cc_item label{ display:inline-block; width:60px; text-align:right; padding-right:10px;}
+
+.table{ font-size:12px;}
+.info{ width:1000px; margin:0 auto;}
+.border{ border:1px solid #666; border-radius:4px; padding:10px;}
+.c-red{ color:red}
+h2{ margin-bottom:20px; text-align:center;}
+h3{ margin-top:50px;}
+label span{ color:red; margin-right:4px;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+	
+    <h2>注册式表单示例：可用字段</h2>	
+    
+    <form class="CCForm">
+             
+        <div class="cc_item">
+            <label><span>*</span>用户名</label>
+            <input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名">
+        </div>
+        
+        <div class="cc_item">
+            <label><span>*</span>手机号</label>
+            <input type="text" name="telephone" maxlength="11" class="required input-text radius" value="" data-tip="请输入您的手机号" data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||手机号格式不正确" placeholder="手机号">
+        </div>
+        
+        
+        <div class="cc_item">
+            <label>报考层次</label>
+            <select class="select radius" name="level">
+                <option value="">请选择报读层次</option>
+                <option value="高升专">高升专</option>
+                <option value="高升本">高升本</option>
+                <option value="专升本">专升本</option>
+            </select>
+        </div>
+        
+        <div class="cc_item">
+            <label>报考专业</label>
+            <input type="text" name="major" class="required input-text radius"  data-tip="请输入报读专业" data-valid="isNonEmpty||maxLength:2" data-error="报读专业不能为空||长度不能小于2位" placeholder="报读专业">
+        </div>
+        
+        <div class="cc_item">
+            <label>邮件</label>
+            <input type="text" name="email" class="required input-text radius" value="" data-tip="请输入您的邮箱" data-valid="isNonEmpty||isEmail" data-error="email不能为空||邮箱格式不正确" placeholder="Email">
+        </div>
+        
+        <div class="cc_item" style="text-align:left">
+            <label>性别</label>
+            男：<input type="radio" name="sex" value="1" checked>
+            女：<input type="radio" name="sex" value="2">
+        </div>
+                    
+        
+        
+        <div class="cc_item">
+            <label>QQ</label>
+            <input type="text" name="qq" class="required input-text radius" data-valid="onlyInt||between:4-10" data-error="请输入正确的QQ号||QQ 号要求4-10位" placeholder="QQ">
+        </div>
+
+        <div class="cc_item">
+            <label>备注</label>
+            <input type="text" name="comment" class="required input-text radius"  data-tip="请输入备注" data-valid="isNonEmpty" data-error="备注不能为空" placeholder="备注">
+        </div>
+        
+        <div class="cc_item">                
+            <input type="hidden" name="pageType" value="成考">          
+            <input class="btn btn-primary" type="submit" value="提交">
+        </div>
+    </form>
+
+</div>  
+
+    <div class="info">
+        <a href="./ccform-style.html" class="btn btn-danger">注册表 - 风格参考</a>
+    </div>
+
+
+<div class="info">
+<h3>接口参数说明:</h3>
+<table class="table table-bg table-border table-bordered table-hover">
+	<thead>
+    	<tr>
+        	<th>参数</th>
+            <th>是否必须</th>
+            <th>参数类型</th>
+            <th>说明</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+    	<tr>
+        	<td>name</td>
+            <td>是</td>
+            <td>string</td>
+            <td>姓名</td>
+        </tr>
+        <tr>
+        	<td>telephone</td>
+            <td>是</td>
+            <td>int</td>
+            <td>电话</td>
+        </tr>
+        <tr>
+        	<td>sex</td>
+            <td>否</td>
+            <td>string</td>
+            <td>性别： 0保密，1男，2女</td>
+        </tr>
+        
+        <tr>
+        	<td>QQ</td>
+            <td>否</td>
+            <td>string</td>
+            <td>QQ</td>
+        </tr>
+        <tr>
+        	<td>level</td>
+            <td>否</td>
+            <td>string</td>
+            <td>层次</td>
+        </tr>
+        <tr>
+        	<td>major</td>
+            <td>否</td>
+            <td>string</td>
+            <td>专业</td>
+        </tr>
+        <tr>
+        	<td>pageType</td>
+            <td>否</td>
+            <td>string</td>
+            <td>页面类型： 表单要注册信息。如：成考，自考，也可以是页面的title</td>
+        </tr>
+        <tr>
+        	<td>location</td>
+            <td>否</td>
+            <td>string</td>
+            <td>所在地区。 默认自动获取， 可以自定义</td>
+        </tr>
+        <tr>
+        	<td>url</td>
+            <td>否</td>
+            <td>string</td>
+            <td>来源URL。 默认自动获取</td>
+        </tr>
+        <tr>
+        	<td>comment</td>
+            <td>否</td>
+            <td>string</td>
+            <td>备注</td>
+        </tr>
+        
+        
+    </tbody>
+</table>
+
+<h3>注1：表单自定义验证规则: </h3>
+<div class="view">
+    <pre class="alert alert-success">
+1. 表单form： class = CCForm
+2. 表单验证：
+    a) 在需要验证的表输入框类上添加 class="required", 
+    b) 规则：data-valid="isNonEmpty"
+    c) 提示信息：data-tip="请输入您的姓名"， 不正确提示信息：data-error="用户名不能为空"
+    d) 提示信息显示位子：需在要输入框外加div. 类名：cc_item， 可以此类cc_item 设置显示属性，如：字体大小
+</pre>
+   
+    <table class="table table-bg table-border table-bordered table-hover">
+	<thead>
+    	<tr>
+        	<th>规则</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>isNonEmpty</td>
+                <td>不能为空</td>
+            </tr>
+            
+            <tr>
+                <td>isMobile</td>
+                <td>不能为空</td>
+            </tr>
+            
+            <tr>
+                <td>isEmail</td>
+                <td>是否为邮箱</td>
+            </tr>
+            
+            <tr>
+                <td>minLength</td>
+                <td>要大于</td>
+            </tr>
+            <tr>
+                <td>maxLength</td>
+                <td>要小于</td>
+            </tr>
+            <tr>
+                <td>between</td>
+                <td>大于小于</td>
+            </tr>
+            <tr>
+                <td>onlyEn</td>
+                <td>纯英文</td>
+            </tr>
+            <tr>
+                <td>onlyZh</td>
+                <td>纯中文</td>
+            </tr>
+            <tr>
+                <td>onlyNum</td>
+                <td>数字包含小数</td>
+            </tr>
+            <tr>
+                <td>onlyInt</td>
+                <td>整数</td>
+            </tr>
+            <tr>
+                <td>isChecked</td>
+                <td>选择：单选，多选</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+	<h3 class="c-red">版本：v1.1 与 v1.2 区别</h3>
+	<pre class="alert alert-info">
+在v1.1 的基础上增加动态加载样式文件， 回调(提交成功后执行)
+
+v1.2 插件的引用：
+&lt;script src="http://post.aihuagrp.com/assets/js/libs/cc/jquery.CCForm.v2.js"&gt;&lt;/script&gt;
+</pre>
+	
+	
+<h3>提交注册式表单使用：版本1.2(<span class="c-red">推荐</span>)</h3>
+<div class="border">
+<pre class="alert alert-success">
+1. 按规则写from 表单， 参考一般写法(用户名，手机号， 提交按钮)
+&lt;form class="CCForm"&gt; 
+    &lt;div class="cc_item"&gt;
+        &lt;label&gt;&lt;span&gt;*&lt;/span&gt;用户名&lt;/label&gt;
+        &lt;input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="cc_item"&gt;
+        &lt;label&gt;&lt;span&gt;*&lt;/span&gt;手机号&lt;/label&gt;
+        &lt;input type="text" name="telephone" maxlength="11" class="required input-text radius" value="" data-tip="请输入您的手机号" data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||手机号格式不正确" placeholder="手机号"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="cc_item"&gt;                
+        &lt;input type="hidden" name="pageType" value="成考-百度渠道"&gt;          
+        &lt;input class="btn btn-primary" type="submit" value="提交"&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+
+2. 引入JS，调用-提交。 注意依赖 jquery，需引入
+&lt;script src="http://post.aihuagrp.com/assets/js/libs/cc/jquery.CCForm.v2.js"&gt;&lt;/script&gt;
+&lt;script&gt;$.CCForm();&lt;/script&gt;
+
+
+说明：对与不同项目只需要指定不同的提交URL 地址一个参数就行了
+&lt;script&gt;$.CCForm({url:'http://post.aihuagrp.com/email【各项目标识名】'});&lt;/script&gt;
+</pre> 
+
+<h4>调用方式：</h4>
+<pre class="alert alert-success">
+调用 方式1：无参数
+$.CCForm();
+
+
+调用 方式2：有参数
+$.CCForm({
+    form:'.CCForm',                                         // 可选。表单类名(class 要带点)，默认为CCFrom
+    url:'http://www.xxx.com/post',                          // 可选。要提交的url(注：区分大小写)
+    jumpUrl:'http://www.xxx.com',                           // 可选。提交成功后跳转置页面
+    callback:null,                                          // 可选。提交成功后执行. v2 添加
+    successMsg:'提交成功&lt;br&gt;我们的工作人员会尽快与您联系',  // 可选。提交成功后，提示的信息
+    errorMsg:'提交失败',                                     // 可选。提交失败后，提示的信息
+    delay:10000                                             // 可选。提交后提示信息框的延时显示时间
+});
+
+
+注意： 方式2中url 参数是区分大小写，写错提交不成功
+
+
+// 测试用
+$.CCForm({
+	url:"http://xxx.com/email",
+	callback:function(){
+		console.log('执行正确后调用')
+	}
+})
+</pre>
+</div>
+	
+	
+<h3>提交注册式表单使用：版本1.1</h3>
+<div class="border">
+<pre class="alert alert-warning">
+1. 引入CSS
+&lt;link rel="stylesheet" href="http://post.aihuagrp.com/assets/js/libs/cc/CCForm.css"&gt;
+
+2. 按规则写from 表单， 参考一般写法(用户名，手机号， 提交按钮)
+&lt;form class="CCForm"&gt; 
+    &lt;div class="cc_item"&gt;
+        &lt;label&gt;&lt;span&gt;*&lt;/span&gt;用户名&lt;/label&gt;
+        &lt;input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="cc_item"&gt;
+        &lt;label&gt;&lt;span&gt;*&lt;/span&gt;手机号&lt;/label&gt;
+        &lt;input type="text" name="telephone" maxlength="11" class="required input-text radius" value="" data-tip="请输入您的手机号" data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||手机号格式不正确" placeholder="手机号"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="cc_item"&gt;                
+        &lt;input type="hidden" name="pageType" value="成考-百度渠道"&gt;          
+        &lt;input class="btn btn-primary" type="submit" value="提交"&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+
+3. 引入JS，调用-提交。 注意依赖 jquery，需引入
+&lt;script src="http://post.aihuagrp.com/assets/js/libs/cc/jquery.CCForm.js"&gt;&lt;/script&gt;
+&lt;script&gt;$.CCForm();&lt;/script&gt;
+
+
+说明：对与不同项目只需要指定不同的提交URL 地址一个参数就行了
+&lt;script&gt;$.CCForm({url:'http://post.aihuagrp.com/email【各项目标识名】'});&lt;/script&gt;
+</pre> 
+    
+
+<h4>调用方式：</h4>
+<pre class="alert alert-warning">
+调用 方式1：无参数
+$.CCForm();
+
+
+调用 方式2：有参数
+$.CCForm({
+    form:'.CCForm',                                         // 可选。表单类名(class 要带点)，默认为CCFrom
+    url:'http://www.xxx.com/post',                          // 可选。要提交的url(注：区分大小写)
+    jumpUrl:'http://www.xxx.com',                           // 可选。提交成功后跳转置页面
+    successMsg:'提交成功&lt;br&gt;我们的工作人员会尽快与您联系',  // 可选。提交成功后，提示的信息
+    errorMsg:'提交失败',                                     // 可选。提交失败后，提示的信息
+    delay:10000                                             // 可选。提交后提示信息框的延时显示时间
+});
+
+
+注意： 方式2中url 参数是区分大小写，写错提交不成功
+// 测试用
+$.CCForm({
+	url:"http://xxx.com/email"
+})
+</pre>
+</div>
+
+
+
+</div>
+
+</body>
+<script src="http://admin.aihuagrp.com/assets/admin/js/jquery.min.js"></script>
+<script src="http://post.aihuagrp.com/assets/js/libs/cc/jquery.CCForm.v2.js"></script>
+
+<script>
+ // $.CCForm();
+ 
+ // 测试用
+ $.CCForm({
+	url:"http://post.ah.com/email",
+	//jumpUrl:'http://www.baidu.com',
+	callback:function(){
+		console.log(2222)
+	}
+});
+</script>
+</html>
