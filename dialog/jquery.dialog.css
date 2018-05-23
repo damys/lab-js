@@ -65,5 +65,6 @@
 .d-dialog-container .dialog-window button.cancel:hover{background-color: rgba(255,255,255,.6);}
 .d-dialog-container .dialog-window button.warning{background-color: rgba(217, 83, 79, 1);}
 .d-dialog-container .dialog-window .dialog-header{color: #fff;}
-.d-dialog-container .dialog-window .dialog-body{ min-width: 80px;letter-spacing:.06em; text-align: center;color:#fff; font-size: 12px; overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+.d-dialog-container .dialog-window .dialog-body{ min-width: 80px; font-weight: 600; letter-spacing:.06em; text-align: center;color:#fff; font-size: 12px; overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+.d-dialog-container .dialog-window .dialog-body p{ line-height: 1.4; font-weight: 100;}
 .d-dialog-container .dialog-window .dialog-footer{padding-top: 1em;display: -webkit-flex;-webkit-align-items: center;-webkit-justify-content: center;}
