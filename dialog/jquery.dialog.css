@@ -32,7 +32,7 @@
   -webkit-justify-content: center;}
 
 .d-dialog-container .dialog-window {
-  min-width:50px; text-align:center;
+  min-width:35px; text-align:center;
   padding: 1em; display:inline-block;
   border-radius: 8px;
   background: rgba(0,0,0,.7);
