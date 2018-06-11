@@ -349,7 +349,7 @@
         
         //是否为手机号码
         isMobile: function(value, errorMsg) {
-            if (!/(^1[3|4|5|7|8][0-9]{9}$)/.test(value)) return errorMsg;
+            if (!/(^1[3|4|5|6|7|8|9][0-9]{9}$)/.test(value)) return errorMsg;
         },
         
         //是否为邮箱
