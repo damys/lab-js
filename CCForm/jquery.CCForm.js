@@ -14,7 +14,7 @@
         // 默认配置参数
         this.config = {
             form:".CCForm",                      // 表单选择器默认class = form
-            url:"http://www.xxx.com/post",    // 提交url
+            url:"http://www.xxxx.com/post",    // 提交url
             jumpUrl:null,                      // 提交成功后跳转的url
             delay:0,                           // 自定义延迟时间
             successMsg:null,                   // 自定义成功提示信息
