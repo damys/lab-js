@@ -1,14 +1,4 @@
 @charset "utf-8";
-
-/*
-* jQuery Form Plugin:CCForm.css
-* 提交框架CSS
-*
-* author:  damys
-* version: 1.1
-* Date:    2017/2
-*/
-
 .cc-mask{ background:rgba(1,1,1,.2); position:fixed; top:0; left:0; bottom:0; right:0; z-index:5000}
 .cc-win{ position:fixed; left:50%; top:50%;
     display: inline-block;
@@ -20,13 +10,14 @@
     transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
 }
 .cc-body{
-    color:#fff; font-size:12px; font-weight:600; font-family:"Microsoft YaHei";
+    color:#fff; font-size:14px; font-weight:600; font-family:"Microsoft YaHei";
     min-width: 60px;
     line-height:1.8em;
     text-align: center;
     padding:2em 1em;
     box-sizing:border-box;
     }
+
 .cc-animate{
     -webkit-transform:scale(0,0);
     -moz-transform:scale(0,0);
