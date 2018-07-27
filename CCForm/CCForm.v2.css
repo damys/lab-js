@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+/*
+* jQuery Form Plugin:CCForm.css
+* 提交框架CSS
+*
+* author:  damys
+* version: 1.1
+* Date:    2017/2
+*/
+
+.cc-mask{ background:rgba(1,1,1,.2); position:fixed; top:0; left:0; bottom:0; right:0; z-index:5000}
+.cc-win{ position:fixed; left:50%; top:50%;
+    display: inline-block;
+    border-radius: 10px;
+    background: rgba(0,0,0,.7);
+    -webkit-transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+    -moz-transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+    -ms-transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+    transition: all .2s cubic-bezier(0, 0, 0.1, 1.08);
+}
+.cc-body{
+    color:#fff; font-size:12px; font-weight:600; font-family:"Microsoft YaHei";
+    min-width: 60px;
+    line-height:1.8em;
+    text-align: center;
+    padding:2em 1em;
+    box-sizing:border-box;
+    }
+.cc-animate{
+    -webkit-transform:scale(0,0);
+    -moz-transform:scale(0,0);
+    -ms-transform:scale(0,0);
+    transform:scale(0,0);}
+.cc-animated{ 
+    -webkit-transform:scale(1,1);
+    -moz-transform:scale(1,1);
+    -ms-transform:scale(1,1);
+    transform:scale(1,1);}
+    
+    
+    
+/*---------验证样式-------------*/
+/* 鼠标active 样式 */
+.cc_item.active .input-text { border: 1px solid #2e6da4;}
+ 
+/* 错误 样式 */
+.cc_item .error .input-text,.cc_item .error .select{ border: 1px solid #d43f3a;}
+.cc_item .error .valid_message {color: #d9534f;}
+.cc_item .valid_message { padding:0 10px; color: #2e6da4;position: absolute; right:3px; top:5px;}
+ 
+/* 成功 提示-加小图标 */
+.cc_item.success .valid_message { width: 16px;height: 16px;}
+
+
+
+/*---------风格样式 开始-------------*/
+
+*{margin:0;padding:0}
+address,caption,cite,code,em,th{font-style:normal; font-weight:normal;}
+canvas{display:block;vertical-align:bottom}
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+body{font: 12px/1.8 "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53"; color:#333; -webkit-font-smoothing:antialiased;  background:#fff; }
+h1,h2,h3,h4,h5,h6,em,i{font-weight:normal; margin:0; padding:0}
+ul,ol,dl{list-style-type:none}
+p{word-wrap:break-word;}
+i,b{ font-style:normal}
+a{text-decoration:none; cursor:pointer; color:#404040; transition:all 0.2s ease-in}
+a:not(.btn):hover{ color: #e60021;}
+a:hover,a:active,a:focus{text-decoration:underline;outline:none}
+a img,img{-ms-interpolation-mode:bicubic;border:0;vertical-align:middle;}
+img{border:0;vertical-align:middle}
+::-webkit-input-placeholder{ color:#b4b4b4;}  :-moz-placeholder{ color:#b4b4b4;}  ::-moz-placeholder{ color:#b4b4b4;} :-ms-input-placeholder{ color:#b4b4b4;}
+input[type='text'],input[type='password'],input[type='button'],input[type='submit'],input[type='reset'],select.select{  -webkit-appearance: none;  -webkit-tap-highlight-color:rgba(0,0,0,0);  }
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
+input,button{overflow:visible;vertical-align:-2px;outline:none}
+.cl:after,.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.cl,.clearfix{zoom:1}
+
+.input-text,.textarea{box-sizing:border-box;border:solid 1px #ddd;width:100%;word-break:break-all; border-radius:3px;
+    -webkit-transition:all 0.2s linear 0s;
+    transition:all 0.2s linear 0s}
+.textarea{ height:100px; padding:4px;resize:none}
+.input-text:hover,.textarea:hover{border: solid 1px #3bb4f2}
+.input-text:focus,textarea:focus{border:solid 1px #0f9ae0 \9;border-color:rgba(82,168,236,0.8);box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)}
+.input-text,.label{ font-size:14px; height:31px; padding:6px 12px; line-height:1.5;}
+.select{background-color:#fff;background-image:none;color:inherit;display:block;padding:6px 12px;width:100%;font-size:14px;outline:none;border:1px solid #DDD;transition: border-color .15s ease-in-out 0s,box-shadow .15s ease-in-out 0s;border-radius:3px;}
+.btn{padding:6px 12px;box-sizing:border-box;display:inline-block;width:auto;cursor:pointer;text-align:center; font-weight:400;white-space:nowrap;vertical-align: middle;border:1px solid #DDD;background-color:#fff;*zoom:1;-webkit-transition:background-color .1s linear;transition:background-color .1s linear;border-radius:3px;}
+.btn-primary{width: 100%; height: 40px; color:#fff;background-color:#007bff; border-color:#007bff;}
+.btn-primary:hover{ background-color: #2f8bef;}
+.btn-danger{color:#fff;background-color:#dc3545; border-color:#dc3545}
+.btn-danger:hover{ background-color: #ec6471;}
+.text-c{ text-align: center;}
+
+/* custom */
+.btn-primary{ margin-top: 20px;}
+
+
+/*~~~~~~~  form ui */
+.form-item,.cc_item{ margin-bottom: 15px; clear: both; position: relative;}
+.form-input-block{ margin-left: 110px; }
+.form-input-inline{ float: left; width: 200px; }
+.form-label{ float: left; width: 80px; height: 38px; line-height: 38px; text-align: right; padding:0 15px; font-weight: 400; }    
+.form-item-pane .form-label{ width: 78px; height: 36px; line-height: 36px; text-align: center; background: #FBFBFB; border: 1px solid #ddd;}
+.form-item-pane .form-input-block,.form-item-pane .form-input-inline{position: relative; left: -1px;}
+.form-item-pane-checked .form-input-block{ height: 36px; line-height: 36px; padding-left: 15px; border: 1px solid #ddd;}
+.form-item-pane-textarea .form-label{ width: 100%; text-align: left; box-sizing: border-box;}
+.form-item-pane-textarea .form-input-block{ margin: 0; top:-1px; left: 0;}
+.form-item-pane .input-text,
+.form-item-pane .select,
+.form-item-pane .nice-select{ border-radius: 0}
+
+
+/*  ----- 美化单选，多选样式  ---- */
+/* status: radio-checkbox */
+.form-status input[type="radio"],.form-status input[type="checkbox"]{ display: none}
+.form-status .radio-icon,.form-status .checkbox-icon{ position: relative; top: 3px; display: inline-block; height: 30px; line-height: 28px; box-sizing: border-box;  padding-right: 30px; border: 1px solid #888; border-radius: 2px; cursor: pointer; text-align: center;}
+.form-status .radio-icon span,.form-status .checkbox-icon span{ display: inline-block; height: 100%; padding: 0 10px; white-space:nowrap; overflow: hidden; text-overflow:ellipsis;}
+.form-status .radio-icon i.iconfont,.form-status .checkbox-icon i.iconfont{ position: absolute; right: 0; width: 30px; line-height: 28px; font-size: 20px; color: #d2d2d2;}
+.form-status input[type="radio"]:checked + .radio-icon,
+.form-status input[type="checkbox"]:checked + .checkbox-icon{ border-color:#007aff;}
+.form-status input[type="radio"]:checked + .radio-icon span,
+.form-status input[type="checkbox"]:checked + .checkbox-icon span{ background: #007aff; color: #fff;}
+.form-status input[type="radio"]:checked + .radio-icon i.iconfont,
+.form-status input[type="checkbox"]:checked + .checkbox-icon i.iconfont{ color: #007aff;}
+.form-status input[type="radio"]:disabled + .radio-icon,
+.form-status input[type="checkbox"]:disabled + .checkbox-icon{cursor:not-allowed;}
+/* status: radio-checkbox, no icon */
+.form-status.no-icon .radio-icon,
+.form-status.no-icon .checkbox-icon{ padding-right: 0}
+.form-status.no-icon .radio-icon .iconfont,
+.form-status.no-icon .checkbox-icon .iconfont{ display: none;}
+/* status: radio-checbox, size */
+.form-status.icon-size-m .radio-icon,
+.form-status.icon-size-m .checkbox-icon{ height: 38px; line-height: 37px;}
+.form-status.icon-size-m .radio-icon span,
+.form-status.icon-size-m .checkbox-icon span{ padding: 0 16px;}
+/* status: radio-checbox style1:nocolor */
+.form-status.icon-nocolor input[type="radio"]:checked + .radio-icon span,
+.form-status.icon-nocolor input[type="checkbox"]:checked + .checkbox-icon span{ background: none; color: #007aff; border-color: #007aff;}
+.form-status.icon-nocolor span{ background: none; color: #666;}
+
+
+/*---------风格样式 结束------------*/
