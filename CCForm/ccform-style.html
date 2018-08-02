@@ -7,44 +7,20 @@
 <title>CCForm 信息提交规范</title>
 
 <link rel="icon" href="http://www.aihuagrp.com/style/images/logo.ico">
-<link rel="stylesheet" href="http://post.aihuagrp.com/assets/js/libs/cc/CCForm.css">
+<link rel="stylesheet" href="http://post.aihuagrp.com/assets/js/libs/cc/CCForm.v2.css">
 <style>
-*{margin:0;padding:0}
-html{font-family:"Microsoft YaHei";-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
-::-webkit-input-placeholder{ color:#b4b4b4;}  :-moz-placeholder{ color:#b4b4b4;}  ::-moz-placeholder{ color:#b4b4b4;} :-ms-input-placeholder{ color:#b4b4b4;}
-input[type='text'],input[type='password'],input[type='button'],input[type='submit'],input[type='reset']{-webkit-appearance: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
-input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit}
-input,button{overflow:visible;vertical-align:middle;outline:none}
-
-.clearfix:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
-
-.input-text,.textarea{box-sizing:border-box;border:solid 1px #ddd;width:100%;word-break:break-all; border-radius:3px;
-    -webkit-transition:all 0.2s linear 0s;
-    transition:all 0.2s linear 0s}
-.textarea{ height:100px; padding:4px;resize:none}
-.input-text:hover,.textarea:hover{border: solid 1px #3bb4f2}
-.input-text:focus,textarea:focus{border:solid 1px #0f9ae0 \9;border-color:rgba(82,168,236,0.8);box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)}
-.input-text,.label{ font-size:14px; height:34px; padding:6px 12px; line-height:1.5;}
-.select{background-color:#fff;background-image:none;color:inherit;display:block;padding:6px 12px;width:100%;font-size:14px;outline:none;border:1px solid #DDD;transition: border-color .15s ease-in-out 0s,box-shadow .15s ease-in-out 0s;border-radius:3px;}
-.btn{padding:6px 12px;box-sizing:border-box;display:inline-block;width:auto;cursor:pointer;text-align:center; font-weight:400;white-space:nowrap;vertical-align: middle;border:1px solid #DDD;background-color:#fff;*zoom:1;-webkit-transition:background-color .1s linear;transition:background-color .1s linear;border-radius:3px;}
-.btn-primary{width: 100%; height: 40px; color:#fff;background-color:#337ab7; border-color:#2e6da4;}
-.btn-primary:hover,.btn-primary:focus,.btn-primary.active{color:#fff;background-color:#286090;border-color:#204d74}    
-.btn-danger{color:#fff;background-color:#d9534f; border-color:#d43f3a}
-.btn-danger:hover,.btn-danger:focus,.btn-danger.active{color:#fff;background-color:#c9302c;}
-.left{ float: left}
-.right{ float: right}
-.cc_item{ margin-top:10px; font-size: 14px;}
-.cc_item .input-text,.cc_item .select{ display:inline-block;}
-.cc_item label{ display:inline-block; width:60px; text-align:right; padding-right:5px;}
-.cc_item .valid_message{ top:7px;}  
-  
-    
-    
+    body{ padding:0 10px;}
+.alert {padding: 10px;margin-bottom: 20px;border: 1px solid transparent;border-radius: 4px;}
+.alert-success {color: #3c763d;background-color: #dff0d8;border-color: #d6e9c6;}
+.alert-info {color: #31708f;background-color: #d9edf7;border-color: #bce8f1;}
+.alert-warning {color: #8a6d3b;background-color: #fcf8e3;border-color: #faebcc;}
+.alert-danger {color: #a94442;background-color: #f2dede;border-color: #ebccd1;}
+    code{color: #a94442;background-color: #f2dede;border-color: #ebccd1; padding: 5px 10px;}
+    pre{ line-height: 12px;}
 /* 做页面显示用，可删除的部分 */
-.test-box{ width:460px; margin:0 auto; padding-bottom: 120px;}
-h2{ margin-bottom:20px; text-align:center; padding-top: 10px; border-top: 2px solid #ccc;}
-    
-
+.test-box{ width:460px; margin:0 auto;}
+.line{ border-top: 1px solid #666; padding-bottom: 20px;}
+h2{ margin-bottom: 20px;}
 </style>
 </head>
 
@@ -53,146 +29,58 @@ h2{ margin-bottom:20px; text-align:center; padding-top: 10px; border-top: 2px so
 <div class="test-box"><a href="./ccform.html" class="btn btn-danger">返回参数页面</a></div>
 
 
-
-
-
+<!-- 注册式表单-风格 block -->   
 <div class="test-box">
-    <h2>注册式表单-风格1</h2>	
+    <h2 class="text-c">注册式表单-风格 block</h2>
     
-<style>
-/* 注册式表单-风格1 */
-.style1 .cc_item .input-text,
-.style1 .cc_item .select,
-.style1 .btn-primary{ width: 390px}
-</style>
-   
-    <form class="CCForm style1">
-        <div class="cc_item">
-            <label>用户名</label>
-            <input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名">
-        </div>
-        
-        <div class="cc_item">
-            <label>手机号</label>
-            <input type="text" name="telephone" maxlength="11" class="required input-text radius" value="" data-tip="请输入您的手机号" data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||手机号格式不正确" placeholder="手机号">
-        </div>
-        
-        
-        <div class="cc_item">
-            <label>报考层次</label>
-            <select class="select radius" name="level">
-                <option value="">请选择报读层次</option>
-                <option value="高升专">高升专</option>
-                <option value="高升本">高升本</option>
-                <option value="专升本">专升本</option>
-            </select>
-        </div>
-        
-        <div class="cc_item">
-            <label>报考专业</label>
-            <input type="text" name="major" class="required input-text radius"  data-tip="请输入报读专业" data-valid="isNonEmpty||maxLength:2" data-error="报读专业不能为空||长度不能小于2位" placeholder="报读专业">
-        </div>
-        
-        <div class="cc_item">
-            <label>邮件</label>
-            <input type="text" name="email" class="required input-text radius" value="" data-tip="请输入您的邮箱" data-valid="isNonEmpty||isEmail" data-error="email不能为空||邮箱格式不正确" placeholder="Email">
-        </div>
-        
-        <div class="cc_item" style="text-align:left">
-            <label>性别</label>
-            男：<input type="radio" name="sex" value="1" checked>
-            女：<input type="radio" name="sex" value="2">
-        </div>
-                    
-
-        <div class="cc_item">
-            <label>QQ</label>
-            <input type="text" name="qq" class="required input-text radius" data-valid="onlyInt||between:4-10" data-error="请输入正确的QQ号||QQ 号要求4-10位" placeholder="QQ">
-        </div>
-
-        <div class="cc_item">
-            <label>备注</label>
-            <input type="text" name="comment" class="required input-text radius"  data-tip="请输入备注" data-valid="isNonEmpty" data-error="备注不能为空" placeholder="备注">
-        </div>
-        
-        <div class="cc_item">                
-            <input type="hidden" name="pageType" value="指定页面类型，如：自考，成考">          
-            <input class="btn btn-primary right" type="submit" value="提交">
-        </div>
-    </form>
-    
-</div>  
-
-
-
-
-
-<div class="test-box" style="width: 1000px">
-   <h2>注册式表单-风格2</h2>	
-   
-<style>
-/* 注册式表单-风格1 */
-.style2 .btn-primary{ margin-top: 50px;}
-.style2 .clearfix .cc_item{ width: 300px;}
-.style2 .cc_item .input-text,
-.style2 .cc_item .select{ width: 225px; display: inline-block; }
-.style2 label.top{ vertical-align: top;}
-.style2 .textarea{ width: 900px;}
-</style>
-
-   <form class="CCForm style2">
-       <div class="clearfix">      
-           <div class="cc_item left">
-                <label>用户名</label>
-                <input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名">
-            </div>
-
-            <div class="cc_item left">
-                <label>手机号</label>
-                <input type="text" name="telephone" maxlength="11" class="required input-text radius" value="" data-tip="请输入您的手机号" data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||手机号格式不正确" placeholder="手机号">
-            </div>
-        </div>
-        
-        <div class="cc_item">
-            <label class="top">备注</label>
-            <textarea name="comment" class="textarea radius" placeholder="备注"></textarea>
-        </div>              
-
-                       
-        <input type="hidden" name="pageType" value="指定页面类型，如：自考，成考">          
-        <input class="btn btn-primary" type="submit" value="提交">
-    </form>
-    
-</div>
-
-
-
-
-
-
-<div class="test-box">
-   <h2>注册式表单-风格</h2>	
-
-   <form class="CCForm">
+    <form class="CCForm">
        <div class="cc_item">
+            <label class="form-label">用户名</label>
+            <div class="form-input-block">
             <input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名">
+           </div>
         </div>
         
         <div class="cc_item">
+            <label class="form-label">手机号</label>
+            <div class="form-input-block">
             <input type="text" name="telephone" maxlength="11" class="required input-text radius" value="" data-tip="请输入您的手机号" data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||手机号格式不正确" placeholder="手机号">
+            </div>
         </div>
         
         <div class="cc_item">
-            <select class="select radius" name="level">
-                <option value="">请选择报读层次</option>
-                <option value="高升专">高升专</option>
-                <option value="高升本">高升本</option>
-                <option value="专升本">专升本</option>
-            </select>
+            <label class="form-label">性别</label>
+            <div class="form-input-block">
+                <label class="form-status no-icon">
+                    <input name="sex" type="radio" value="男" checked>               
+                    <div class="radio-icon"><span>男</span>  </div>
+                </label>
+
+                <label class="form-status no-icon">
+                    <input name="sex" type="radio" value="女">               
+                    <div class="radio-icon"><span>女</span>  </div>
+                </label>
+            </div>
         </div>
         
         <div class="cc_item">
-            <input type="text" name="major" class="required input-text radius"  data-tip="请输入报读专业" data-valid="isNonEmpty||maxLength:2" data-error="报读专业不能为空||长度不能小于2位" placeholder="报读专业">
+            <label class="form-label">爱好</label>
+            <div class="form-input-block">
+                <label class="form-status no-icon">
+                    <input name="hobby[]" type="checkbox" value="写作" checked>               
+                    <div class="checkbox-icon"><span>写作</span>  </div>
+                </label>
+
+                <label class="form-status no-icon">
+                    <input name="hobby[]" type="checkbox" value="书法">               
+                    <div class="checkbox-icon"><span>书法</span>  </div>
+                </label>
+
+                <label class="form-status no-icon">
+                    <input name="hobby[]" type="checkbox" value="旅游">               
+                    <div class="checkbox-icon"><span>旅游</span>  </div>
+                </label>
+            </div>
         </div>
         
         <div class="cc_item">                
@@ -202,8 +90,159 @@ h2{ margin-bottom:20px; text-align:center; padding-top: 10px; border-top: 2px so
     </form>
     
 </div>
+<h2>结构使用:<code>block</code></h2>
+    
+<pre class="alert alert-info">
+&lt;div class="cc_item"&gt;
+
+    &lt;label class="form-label"&gt;用户名&lt;/label&gt;
+
+    &lt;div class="form-input-block"&gt;
+        &lt;input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名"&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+    
+<h2>美化元素:<code>radio, checkbox</code></h2>
+<p class="c-red">引入<code>css</code>, 注：只引一个，可取消低版的。<code>http://post.aihuagrp.com/assets/js/libs/cc/CCForm.v2.css</code></p>
+<pre class="alert alert-info">
+&lt;div class="cc_item"&gt;
+
+    &lt;label class="form-label"&gt;性别&lt;/label&gt;
+
+    &lt;div class="form-input-block"&gt;
+
+        &lt;label class="form-status no-icon"&gt;
+            &lt;input name="sex" type="radio" value="男" checked&gt;               
+            &lt;div class="radio-icon"&gt;&lt;span&gt;男&lt;/span&gt;  &lt;/div&gt;
+        &lt;/label&gt;
+
+        &lt;label class="form-status no-icon"&gt;
+            &lt;input name="sex" type="radio" value="女"&gt;               
+            &lt;div class="radio-icon"&gt;&lt;span&gt;女&lt;/span&gt;  &lt;/div&gt;
+        &lt;/label&gt;
+
+    &lt;/div&gt;
+    
+&lt;/div&gt;
 
 
+&lt;div class="cc_item"&gt;
+    &lt;label class="form-label"&gt;爱好&lt;/label&gt;
+
+    &lt;div class="form-input-block"&gt;
+
+        &lt;label class="form-status no-icon"&gt;
+            &lt;input name="hobby[]" type="checkbox" value="写作" checked&gt;               
+            &lt;div class="checkbox-icon"&gt;&lt;span&gt;写作&lt;/span&gt;  &lt;/div&gt;
+        &lt;/label&gt;
+
+        &lt;label class="form-status no-icon"&gt;
+            &lt;input name="hobby[]" type="checkbox" value="书法"&gt;               
+            &lt;div class="checkbox-icon"&gt;&lt;span&gt;书法&lt;/span&gt;  &lt;/div&gt;
+        &lt;/label&gt;
+
+        &lt;label class="form-status no-icon"&gt;
+            &lt;input name="hobby[]" type="checkbox" value="旅游"&gt;               
+            &lt;div class="checkbox-icon"&gt;&lt;span&gt;旅游&lt;/span&gt;  &lt;/div&gt;
+        &lt;/label&gt;
+
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+</pre>    
+<div class="line"></div>  
+
+    
+<!-- 注册式表单-风格 inline -->   
+<div class="test-box">
+    <h2 class="text-c">注册式表单-风格 inline</h2>
+    
+    <form class="CCForm">
+       <div class="cc_item">
+            <label class="form-label">用户名</label>
+           <div class="form-input-inline">
+            <input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名">
+           </div>
+        </div>
+        
+        <div class="cc_item">
+            <label class="form-label">手机号</label>
+            <div class="form-input-inline">
+            <input type="text" name="telephone" maxlength="11" class="required input-text radius" value="" data-tip="请输入您的手机号" data-valid="isNonEmpty||isMobile" data-error="手机号不能为空||手机号格式不正确" placeholder="手机号">
+            </div>
+        </div>
+        
+        <div class="cc_item">
+            <label class="form-label">性别</label>
+            <div class="form-input-inline">
+                <label class="form-status no-icon">
+                    <input name="sex" type="radio" value="男" checked>               
+                    <div class="radio-icon">
+                        <span>男</span>  
+                    </div>
+                </label>
+
+                <label class="form-status no-icon">
+                    <input name="sex" type="radio" value="女">               
+                    <div class="radio-icon">
+                        <span>女</span>  
+                    </div>
+                </label>
+            </div>
+        </div>
+        
+        
+        <div class="cc_item">
+            <label class="form-label">爱好</label>
+            <div class="form-input-inline">
+                <label class="form-status no-icon">
+                    <input name="hobby[]" type="checkbox" value="写作" checked>               
+                    <div class="checkbox-icon">
+                        <span>写作</span>  
+                    </div>
+                </label>
+
+                <label class="form-status no-icon">
+                    <input name="hobby[]" type="checkbox" value="书法">               
+                    <div class="checkbox-icon">
+                        <span>书法</span>  
+                    </div>
+                </label>
+
+                <label class="form-status no-icon">
+                    <input name="hobby[]" type="checkbox" value="旅游">               
+                    <div class="checkbox-icon">
+                        <span>旅游</span>  
+                    </div>
+                </label>
+            </div>
+        </div>
+        
+        <div class="cc_item">                
+            <input type="hidden" name="pageType" value="指定页面类型，如：自考，成考">          
+            <input class="btn btn-primary" type="submit" value="提交">
+        </div>
+    </form>
+    
+</div>
+<h2>结构使用：<code>inline</code></h2>
+<pre class="alert alert-info">
+&lt;div class="cc_item"&gt;
+
+    &lt;label class="form-label"&gt;用户名&lt;/label&gt;
+
+    &lt;div class="form-input-inline"&gt;
+        &lt;input type="text" name="name" class="required input-text radius"  data-tip="请输入您的姓名" data-valid="isNonEmpty||maxLength:2" data-error="用户名不能为空||长度不能小于2位" placeholder="用户名"&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;
+</pre>
+<div class="line"></div>  
+
+    
+    
 </body>
 <script src="http://admin.aihuagrp.com/assets/admin/js/jquery.min.js"></script>
 <script src="http://post.aihuagrp.com/assets/js/libs/cc/jquery.CCForm.js"></script>
