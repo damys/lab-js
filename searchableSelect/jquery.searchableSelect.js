@@ -202,7 +202,9 @@
       this.input.focus();
       this.status = 'show';
       this.setPriviousAndNextVisibility();
-//      this.holder.addClass('triangle')
+	  
+	  this.holder.addClass('triangle')
+	  
     },
 
     hide: function(){
@@ -214,7 +216,7 @@
       this.dropdown.addClass('searchable-select-hide');
       this.searchableElement.trigger('focus');
       this.status = 'hide';
-//        this.holder.removeClass('triangle')
+	  this.holder.removeClass('triangle')
     },
 
     hasCurrentSelectedItem: function(){
