@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CCSearchableSelect</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Expires" content="0"><!-- 禁止缓存 -->
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-siteapp"><!-- 禁止百度SiteAPP转码 -->
+<meta name="robots" content="nofollow"><!-- 禁止搜索引擎抓取 -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>searchableSelect</title>
     <link rel="stylesheet" href="./jquery.searchableSelect.css">
     <style>
         .{margin: 0; padding: 0;}
@@ -10,7 +18,7 @@
 </head>
 <body>
 
-<select class="searchableSelect" name="searchableSelect">
+<select class="searchableSelect" name="searchableSelect" style="">
     <option>请选择</option>
     <option value="" selected>searchableSelect</option>
     <option value="a">aaaa</option>
@@ -19,6 +27,25 @@
     <option value="d">dddd</option>
     <option value="e">eeee</option>
     <option value="f">ffff</option>
+	<option value="g">gggg</option>
+    <option value="h">hhhh</option>
+    <option value="i">iiii</option>
+    <option value="j">jjjj</option>
+    <option value="k">kkkk</option>
+    <option value="l">llll</option>
+
+	<option value="a">aaaa</option>
+    <option value="b">bbb</option>
+    <option value="c">ccc</option>
+    <option value="d">dddd</option>
+    <option value="e">eeee</option>
+    <option value="f">ffff</option>
+	<option value="g">gggg</option>
+    <option value="h">hhhh</option>
+    <option value="i">iiii</option>
+    <option value="j">jjjj</option>
+    <option value="k">kkkk</option>
+    <option value="l">llll</option>
 </select>
 
 
@@ -37,6 +64,8 @@
 <script>
 // 缺点不支持 disabled
 $('.searchableSelect').searchableSelect();
+
+
 </script>
 </body>
 </html>
