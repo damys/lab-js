@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Dropdown.js</title>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="./jquery.dropdown.css">
+<script src="./jquery.dropdown.js"></script>
+<style>
+    body{ width: 600px; margin:0 auto 40px auto;}
+	.text-info{margin:50px 0 10px 0; color: #666;}
+  </style>
+</head>
+<body>
+
+<div class="text-info">单选</div>
+<div class="dropdown1">
+    <select style="display:none" name="dropdown1" class="dropdown1" placeholder="请选择">
+    <option value="">请选择</option>
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4" disabled>4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    </select>
+</div>
+
+
+
+
+
+<div class="text-info">单选，搜索</div>
+<div class="dropdown2">
+    <select style="display:none" name="dropdown2" placeholder="请选择">
+    <option value="">请选择</option>
+    <option value="1" selected>a</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4" disabled>4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    </select>
+</div>
+
+
+
+<div class="text-info">多选,选中多个</div>
+<div class="dropdown3">
+    <select style="display:none" multiple name="dropdown3[]" placeholder="请选择">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3" selected>我是默认选中的</option>
+    <option value="4" disabled>4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    </select>
+</div>
+
+
+
+
+<div class="text-info">多选，搜索</div>
+<div class="dropdown4">
+    <select style="display:none" multiple name="dropdown4[]" placeholder="请选择">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    </select>
+</div>
+
+
+
+<script>
+    // 缺点就是不支持change
+
+	$('.dropdown1').dropdown({
+      searchable: false,
+      choice: function() {
+        console.log(arguments, this);
+      }
+    });
+
+    $('.dropdown2').dropdown({
+	  // 搜索框模板: 可以指定显示的字符,默认为:搜索关键词或ID
+	  input: '<input type="text" maxLength="20" placeholder="请输入搜索">',
+      choice: function() {
+        console.log(arguments, this);
+      }
+    });
+
+
+    $('.dropdown3').dropdown({
+	  multiple: true,
+      choice: function() {
+        console.log(arguments, this);
+      }
+    });
+
+
+
+	$('.dropdown4').dropdown({
+	// 是否可开启搜索,默认true
+      searchable: true,
+
+	  // 是否只读
+//      readOnly: true,
+	  multiple: true,
+
+	  // 选择上限
+	  limitCount: 3,
+
+	  // 搜索框模板: 可以指定显示的字符,默认为:搜索关键词或ID
+	  input: '<input type="text" maxLength="20" placeholder="请输入搜索">',
+
+	  // 无数据模板
+//	  searchNoData: '<li style="color:#666">查无数据</li>',
+
+	  // 选择后回调函数
+      choice: function() {
+        console.log(arguments, this);
+      }
+    });
+
+
+
+
+          // test。。。。
+    $(".dropdown1").on("change",function() {
+        console.log($(this).val());
+    });
+</script>
+</body>
+</html>
