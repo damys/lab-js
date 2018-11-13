@@ -85,18 +85,16 @@
 .chosen-container .chosen-results-scroll-down span {background: url("chosen-sprite.png") no-repeat -4px -3px;}
 .chosen-container .chosen-results-scroll-up span {background: url("chosen-sprite.png") no-repeat -22px -3px;}
 .chosen-container-single .chosen-single {
-	background-color: #fff;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-	color: #555555;
-	display: block;
-	height: 38px;	
-	line-height: 38px;
+	display: block;height: 38px;	line-height: 38px;
 	padding: 0 30px 0 10px;
     overflow: hidden;
 	position: relative;
 	text-decoration: none;
 	white-space: nowrap;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #555555;
 }
 .chosen-container-single .chosen-single span {
 	display: block;
@@ -117,7 +115,6 @@
 }
 .chosen-container-single .chosen-single abbr:hover {background-position: right -11px;}
 .chosen-container-single .chosen-single.chosen-disabled .chosen-single abbr:hover {background-position: right 2px;}
-
 
 .chosen-container:after {
 	border-bottom: 2px solid #bbb;
