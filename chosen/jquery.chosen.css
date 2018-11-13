@@ -51,7 +51,6 @@
 	color: white;
 }
 
-
 .chosen-container .chosen-results li.highlighted em {background: transparent;}
 .chosen-container .chosen-results li.disabled-result {
 	display: list-item;
