@@ -86,9 +86,9 @@
 .chosen-container .chosen-results-scroll-up span {background: url("chosen-sprite.png") no-repeat -22px -3px;}
 .chosen-container-single .chosen-single {
 	display: block;height: 38px;	line-height: 38px;
+	position: relative;
 	padding: 0 30px 0 10px;
     overflow: hidden;
-	position: relative;
 	text-decoration: none;
 	white-space: nowrap;
 	background-color: #fff;
@@ -197,11 +197,7 @@
 	padding: 0 30px 0 10px;
 	outline: 0;
 }
-.chosen-container-multi .chosen-choices .search-field .default {
-	color: #999;
-}
-
-
+.chosen-container-multi .chosen-choices .search-field .default {color: #999;}
 .chosen-container-multi .chosen-choices .search-choice {
 	background-color: #eeeeee;
 	border: 1px solid #ccc;
