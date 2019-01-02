@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px 20px 20px 20px;
+}
+
+.box{ width: 960px; margin: 0 auto;}
+.item{ margin-top: 50px;}
+
+
+/* begin */
+.carousel-box{ height: 200px; overflow: hidden; position: relative;}
+.j-prev,.j-next{ position:absolute; top: 50%; z-index: 1000; user-select: none; width: 44px; height: 44px; line-height: 32px; margin-top: -25px; cursor: pointer; font-size: 50px; text-align: center; background: rgba(1,1,1,.5); color: #fff; border-radius: 50%;}
+.j-prev:hover,.j-next:hover{ background: rgba(1, 1, 1, .7)}
+.j-prev{ left: 0;}
+.j-next{ right: 0;}
+.carousel {
+    background-color: ghostwhite;
+    float: left;
+    position: relative;
+    visibility: hidden;
+    left: -5000px;
+}
+</style>
+
+</head>
+<body>
+
+
+<div class="box">
+
+    <h3>Default</h3>
+    <div class="carousel-default carousel-box">        
+        <div class="carousel">
+            <ul>
+                <li><img src="./style/img/1.jpg"></li>
+                <li><img src="./style/img/2.jpg"></li>
+                <li><img src="./style/img/3.jpg"></li>
+                <li><img src="./style/img/4.jpg"></li>
+                <li><img src="./style/img/5.jpg"></li>
+            </ul>
+        </div>
+
+        <a class="j-prev">&lsaquo;</a>
+        <a class="j-next">&rsaquo;</a>
+    </div>
+
+
+
+
+    <h3>Auto</h3>
+    <div class="carousel-auto carousel-box">        
+        <div class="carousel">
+            <ul>
+                <li><img src="./style/img/1.jpg"></li>
+                <li><img src="./style/img/2.jpg"></li>
+                <li><img src="./style/img/3.jpg"></li>
+                <li><img src="./style/img/4.jpg"></li>
+                <li><img src="./style/img/5.jpg"></li>
+            </ul>
+        </div>
+
+        <a class="j-prev">&lsaquo;</a>
+        <a class="j-next">&rsaquo;</a>
+    </div>
+
+
+
+
+    <h3>More</h3>
+    <div class="carousel-more carousel-box">        
+        <div class="carousel">
+            <ul>
+                <li><img src="./style/img/1.jpg"></li>
+                <li><img src="./style/img/2.jpg"></li>
+                <li><img src="./style/img/3.jpg"></li>
+                <li><img src="./style/img/4.jpg"></li>
+                <li><img src="./style/img/5.jpg"></li>
+            </ul>
+        </div>
+
+        <a class="j-prev">&lsaquo;</a>
+        <a class="j-next">&rsaquo;</a>
+    </div>
+
+
+
+
+</div>
+
+<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>  
+<script src="./style/js/jquery.jcarousellite.min.js"></script>
+
+
+<script>
+// default
+$(function() {
+    $(".carousel-default .carousel").jCarouselLite({
+        btnNext: ".carousel-default .j-prev",
+        btnPrev: ".carousel-default .j-next"
+    });
+});
+
+
+
+
+
+
+/*
+点击小图显示大图
+$(".min img").click(function() {
+    $(".widget img").attr("src", $(this).attr("src"));
+});
+*/
+</script>
+</body>
+</html>
