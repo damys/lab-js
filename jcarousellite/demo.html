@@ -29,6 +29,8 @@ body {
     visibility: hidden;
     left: -5000px;
 }
+
+
 </style>
 
 </head>
@@ -41,11 +43,11 @@ body {
     <div class="carousel-default carousel-box">        
         <div class="carousel">
             <ul>
-                <li><img src="./style/img/1.jpg"></li>
-                <li><img src="./style/img/2.jpg"></li>
-                <li><img src="./style/img/3.jpg"></li>
-                <li><img src="./style/img/4.jpg"></li>
-                <li><img src="./style/img/5.jpg"></li>
+                <li><img src="./img/1.jpg"></li>
+                <li><img src="./img/2.jpg"></li>
+                <li><img src="./img/3.jpg"></li>
+                <li><img src="./img/4.jpg"></li>
+                <li><img src="./img/5.jpg"></li>
             </ul>
         </div>
 
@@ -60,11 +62,11 @@ body {
     <div class="carousel-auto carousel-box">        
         <div class="carousel">
             <ul>
-                <li><img src="./style/img/1.jpg"></li>
-                <li><img src="./style/img/2.jpg"></li>
-                <li><img src="./style/img/3.jpg"></li>
-                <li><img src="./style/img/4.jpg"></li>
-                <li><img src="./style/img/5.jpg"></li>
+                <li><img src="./img/1.jpg"></li>
+                <li><img src="./img/2.jpg"></li>
+                <li><img src="./img/3.jpg"></li>
+                <li><img src="./img/4.jpg"></li>
+                <li><img src="./img/5.jpg"></li>
             </ul>
         </div>
 
@@ -79,11 +81,29 @@ body {
     <div class="carousel-more carousel-box">        
         <div class="carousel">
             <ul>
-                <li><img src="./style/img/1.jpg"></li>
-                <li><img src="./style/img/2.jpg"></li>
-                <li><img src="./style/img/3.jpg"></li>
-                <li><img src="./style/img/4.jpg"></li>
-                <li><img src="./style/img/5.jpg"></li>
+                <li><img src="./img/1.jpg"></li>
+                <li><img src="./img/2.jpg"></li>
+                <li><img src="./img/3.jpg"></li>
+                <li><img src="./img/4.jpg"></li>
+                <li><img src="./img/5.jpg"></li>
+            </ul>
+        </div>
+
+        <a class="j-prev">&lsaquo;</a>
+        <a class="j-next">&rsaquo;</a>
+    </div>
+
+
+    
+    <h3>Callback</h3>
+    <div class="carousel-callback carousel-box">        
+        <div class="carousel">
+            <ul>
+                <li><img src="./img/1.jpg"></li>
+                <li><img src="./img/2.jpg"></li>
+                <li><img src="./img/3.jpg"></li>
+                <li><img src="./img/4.jpg"></li>
+                <li><img src="./img/5.jpg"></li>
             </ul>
         </div>
 
@@ -93,14 +113,36 @@ body {
 
 
 
-
 </div>
 
 <script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>  
-<script src="./style/js/jquery.jcarousellite.min.js"></script>
+<script src="./js/jquery.jcarousellite.min.js"></script>
 
 
 <script>
+/*
+
+btnPrev: null,              // CSS Selector for the previous button
+btnNext: null,              // CSS Selector for the next button
+btnGo: null,                // CSS Selector for the go button
+mouseWheel: false,          // Set "true" if you want the carousel scrolled using mouse wheel
+auto: null,                 // Set to a numeric value (800) in millis. Time period between auto scrolls
+
+speed: 200,                 // Set to a numeric value in millis. Speed of scroll
+easing: null,               // Set to easing (bounceout) to specify the animation easing
+
+vertical: false,            // Set to "true" to make the carousel scroll vertically
+circular: true,             // Set to "true" to make it an infinite carousel
+visible: 3,                 // Set to a numeric value to specify the number of visible elements at a time
+start: 0,                   // Set to a numeric value to specify which item to start from
+scroll: 1,                  // Set to a numeric value to specify how many items to scroll for one scroll event
+
+beforeStart: null,          // Set to a function to receive a callback before every scroll start
+afterEnd: null              // Set to a function to receive a callback after every scroll end
+
+*/
+
+    
 // default
 $(function() {
     $(".carousel-default .carousel").jCarouselLite({
@@ -110,9 +152,37 @@ $(function() {
 });
 
 
+// auto
+$(".carousel-auto .carousel").jCarouselLite({
+    btnNext: ".carousel-auto .j-prev",
+    btnPrev: ".carousel-auto .j-next",
+    auto: 800,
+    speed: 1000
+});
+
+
+// more
+$(".carousel-more .carousel").jCarouselLite({
+    btnNext: ".carousel-more .j-prev",
+    btnPrev: ".carousel-more .j-next",
+    scroll:2,
+    speed: 1000
+});
 
 
 
+// callback
+$(".carousel-callback .carousel").jCarouselLite({
+    btnNext: ".carousel-callback .j-prev",
+    btnPrev: ".carousel-callback .j-next",
+    speed: 1000,
+    beforeStart: function(a) {
+        console.log("Before animation starts:" + a);
+    },
+    afterEnd: function(a) {
+        console.log("After animation ends:" + a);
+    }
+});
 
 /*
 点击小图显示大图
