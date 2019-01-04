@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px 20px 20px 20px;
+}
+
+.box{ width: 960px; margin: 0 auto;}
+.item{ margin-top: 50px;}
+
+
+/* begin */
+.posterTvGrid {
+    height: 200px;
+    position: relative;
+}
+.posterTvGrid img {
+    background: none repeat scroll 0 0 #888;
+    border: 0 none;
+    max-height: none;
+    max-width: none;
+}
+.posterTvGrid .contentHolder {
+    overflow: hidden;
+    position: relative;
+}
+.posterTvGrid .contentHolderUnit {
+    cursor: pointer;
+    height: 240px;
+    position: absolute;
+    width: 520px;
+}
+.posterTvGrid .contentHolderUnit a.elementLink {
+    display: block;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 3;
+}
+.posterTvGrid .contentHolderUnit img {
+    height: 100%;
+    width: 100%;
+}
+.posterTvGrid .contentHolderUnit .elementOverlay {
+    background: none repeat scroll 0 0 #000;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+.posterTvGrid .leftNav, .posterTvGrid .rightNav {
+    cursor: pointer;
+    height: 40px;
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    z-index: 10;
+}
+.posterTvGrid .leftNav {
+   width:36px; height:134px; position:absolute; left:20px; top:96px; background:url(./img/cllic_lefrigh.png) no-repeat 0 0; cursor:pointer
+}
+.posterTvGrid .rightNav {
+   width:36px; height:134px; position:absolute; right:20px; top:90px; background:url(./img/cllic_lefrigh.png) no-repeat -145px 0; cursor:pointer
+}
+.posterTvGrid .bottomNav {
+    height: 10px;
+    margin-top: 240px;
+    padding: 10px 0 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 140;
+	display:none
+}
+
+.posterTvGrid .bottomNavButtonON, .posterTvGrid .bottomNavButtonON:hover {
+    background: none repeat scroll 0 0 #69aaec;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div class="box">
+
+    <h3>posterTvGrid</h3>
+	<div id="posterTvGrid"></div>
+
+</div>
+
+
+
+<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>  
+<script src="./js/posterTvGrid.js"></script>
+<script>
+/*
+
+offsetPages : 3,//默认可视最大条数
+direct : "left",//滚动的方向
+initPage : 1,//默认当前显示第几条
+className : "posterTvGrid",//最外层样式
+autoWidth : true,//默认不用设置宽
+width : 860,//最外层宽，需要使用的时候在传,默认由程序自动判断
+height : 290,//最外层高  
+delay : 5000,//滚动间隔（毫秒）
+speed : 500 //滚动速度毫秒
+
+*/
+
+
+var wd_wrap = new posterTvGrid('posterTvGrid',
+    { className: "posterTvGrid" },
+    [
+        { "img": "./img/1.jpg", "title": "", "url": " ","onclick":""},
+        { "img": "./img/2.jpg", "title": "", "url": " ","onclick":""},
+        { "img": "./img/3.jpg", "title": "", "url": " ","onclick":""},
+        { "img": "./img/4.jpg", "title": "", "url": " ","onclick":""},
+        { "img": "./img/5.jpg", "title": "", "url": " ","onclick":""}
+    ]
+)
+</script>
+</body>
+</html>
