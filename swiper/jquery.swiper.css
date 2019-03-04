@@ -532,10 +532,10 @@ button.swiper-pagination-bullet {
    platform Styles
    ================================================================*/ 
 /* pc height  */    
-.swiper-container{ height: 640px;}  
+.swiper-container-focus{ height: 640px;}  
 
 /* wap height */   
 @media screen and (max-width: 769px){
-    .swiper-container{ height: 300px;}
+    .swiper-container-focus{ height: 300px;}
     .swiper-button{ display: none}
 }
